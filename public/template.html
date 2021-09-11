@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Reciept Manager</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="Chrofex.png">
+
+
+  </head>
+  <body>
+        <header>
+            <a class = "logo" href="localhost:3000"><img class = "MainImage" src="Chrofex.png" alt = "logo"></a>
+            <nav>
+                <ul class="topbar">
+                    <li>
+                      <a href="/logout" onclick="signOut();" class="UserIcon"></a>
+                      <script>
+                        function signOut() {
+                          var auth2 = gapi.auth2.getAuthInstance();
+                          auth2.signOut().then(function () {
+                            console.log('User signed out.');
+                          });
+                        }
+                      </script>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+          <div class="ContentContainer">
+
+          </div>
+        </main>
+  </body>
+
+</html>

@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    justify-content: space-between;
+    align-items: center;
+    background-color: whitesmoke;
+    height: 6vh;
+    z-index: 100;
+}
+
+.topbar {
+    position: static;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.logo {
+    cursor: pointer;
+    background-color: whitesmoke;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 10%;
+}
+
+.ContentContainer {
+    width: 80%;
+    margin: auto;
+    height: 100vh;
+    margin-top: 6vh;
+}
+
+.LoginContainer {
+    font-family: 'Archivo Narrow', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+    width: 600px;
+    height: 120px;
+    position: relative;
+    top: 20%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.Title {
+    font-size: 30px;
+    text-align: center;
+}
+.GoogleContainer {
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 100%;
+    margin-top: 10px; 
+    
+    text-align: center;
+}
+
+#Custombtn.GoogleSignInButton {
+    cursor: pointer;
+    background-color: whitesmoke;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 20%;
+}
+
+.UserIcon {
+    font-family: 'Archivo Narrow', sans-serif;
+    padding: 10px 20px;
+    list-style-type: none;
+    color: gray;
+    background-color: gray;  
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.TitleContent {
+    font-family: 'Archivo Narrow', sans-serif;
+    text-align: center;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    margin-top: 0;
+    font-size: 3vw;
+}
+
+#ProductDetails {
+    height: 50vh;
+    width: 100%;
+    background-color: whitesmoke;
+}
+
+.HowItWorks {
+    width: 100%;
+    height: 8vh;
+    margin-top: 60vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+    border: 0px;
+    background-color: white;
+    padding: 0;
+    text-align: center;
+    font-size: 1.5vw;
+    font-family: 'Archivo Narrow', sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+.HowItWorks:hover {
+    cursor: pointer;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
