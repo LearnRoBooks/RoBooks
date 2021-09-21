@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <title>Reciept Manager</title>
     <link rel="stylesheet" href="main.css">
-    <link rel="icon" href="Chrofex.png">
+    <link rel="icon" href="Receipt-Icon.png">
 
 
   </head>
   <body>
         <header>
-            <a class = "logo" href="localhost:3000"><img class = "MainImage" src="Chrofex.png" alt = "logo"></a>
+            <a class = "logo" href="https://receipthelpmanage.herokuapp.com"><img class = "MainImage" src="Receipt-Icon.png" alt = "logo"></a>
             <nav>
                 <ul class="topbar">
                     <li>
@@ -31,8 +31,146 @@
         <main>
           <div class="ContentContainer">
 
+            <div class="NavigationReceipts">
+              <div class="NavigationReceiptsTitle"><b>My Receipts</b></div> 
+              <a id="AddReceipt" class="addRButton"><b>+</b></a>
+            </div>
+
+            <div id="ReceiptsHolder" class="ReceiptsHolder">
+
+            </div>
+
+            <div id="AddReceiptMenu" class="AddReceiptMenu">
+                <div class="AddReceiptTitle">Add Receipt</div>
+                <a id="CloseReceiptAdd" class ="CloseReceiptAdd">X</a>
+                <div class="DataEntryHolder">
+                  <label for="dateData">Date: </label>
+                  <input type="date" id ="dateData" class ="DataEntry"></input>
+                </div>
+
+                <div class="DataEntryHolder">
+                  <label for="placeData">Place: </label>
+                  <input type="text" id ="placeData" class ="DataEntry"></input>
+                </div>
+
+                <div class="DataEntryHolder">
+                  <label for="amountData">Amount: </label>
+                  <input type="text" id ="amountData" class ="DataEntry"></input>
+                </div>
+
+                <div class="DataEntryHolder">
+                  <label for="paymentData">Payment: </label>
+                  <input type="text" id ="paymentData" class ="DataEntry"></input>
+                </div>
+               
+         
+                <a id="DoneReceipt" class="SubmitReceiptButton"><b>Submit</b></a>
+
+              
+            </div>
           </div>
         </main>
   </body>
+
+  <script>
+    document.getElementById("AddReceipt").addEventListener("click", async => {
+        let Element = document.getElementById("AddReceiptMenu")
+
+        Element.style.display = "block";
+    })
+
+    document.getElementById("CloseReceiptAdd").addEventListener("click", async => {
+        let Element = document.getElementById("AddReceiptMenu")
+
+        Element.style.display = "none";
+    })
+
+    document.getElementById("DoneReceipt").addEventListener("click", async => {
+      let data = {
+        date: document.getElementById("dateData").value,
+        place: document.getElementById("placeData").value,
+        amount: document.getElementById("amountData").value,
+        payment: document.getElementById("paymentData").value
+      }
+      try {     
+        document.getElementById("AddReceiptMenu").style.display = "none";
+        const response = fetch('/profile', {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+        
+        updateReceiptsList()
+        console.log('Completed!', response);
+      } catch(err) {
+        console.error(`Error: ${err}`);
+      }
+    })
+
+    //Send GET Requests to Retrieve Receipts
+    async function updateReceiptsList() {
+      try {     
+          const response = await fetch('/getData', {
+            method: 'get',
+          });
+      
+          console.log('Completed!');
+
+          response.json()
+          .then(data => {
+            console.log("NEWDATA", data)
+            let oldReceiptElements = document.getElementsByClassName("ReceiptItem")
+
+
+            for (var q = 0; q < oldReceiptElements.length; ++q) {
+              console.log('Removing', q)
+              oldReceiptElements[q].remove()
+            }
+
+            document.getElementById('ReceiptsHolder').style.height = (10.5*data.holdata.length) + "vh"
+
+            console.log(data.holdata)
+            
+            for (let i = 0; i < data.holdata.length; ++i) {
+              let newItem = document.createElement("div")
+              newItem.classList.add("ReceiptItem")
+
+              document.getElementById('ReceiptsHolder').append(newItem)
+
+              let dateItem = document.createElement("div")
+              dateItem.classList.add("ReceiptChildItem")
+              dateItem.innerHTML = "<u>Date</u><br>" + "<b>" + data.holdata[i].date + "</b>"
+              newItem.append(dateItem)
+
+              let placeItem = document.createElement("div")
+              placeItem.classList.add("ReceiptChildItem")
+              placeItem.innerHTML = "<u>Place</u><br>" + "<b>" + data.holdata[i].place + "</b>"
+              newItem.append(placeItem)
+
+              let amountItem = document.createElement("div")
+              amountItem.classList.add("ReceiptChildItem")
+              amountItem.innerHTML = "<u>Amount</u><br>" + "<b>" + data.holdata[i].amount + "</b>"
+              newItem.append(amountItem)
+
+              let paymentItem = document.createElement("div")
+              paymentItem.classList.add("ReceiptChildItem")
+              paymentItem.innerHTML = "<u>Payment</u><br>" + "<b>" + data.holdata[i].date + "</b>"
+              newItem.append(paymentItem)
+            }
+
+          })
+
+        
+        
+        } catch(err) {
+          console.error(`Error: ${err}`);
+  
+        }
+    }
+
+    updateReceiptsList()
+  </script>
 
 </html>

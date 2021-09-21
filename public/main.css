@@ -205,3 +205,174 @@ header {
     margin-top: 20%;
 
 }
+
+.AddReceiptMenu {
+    display: none;
+    width: 20%;
+    position: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+    height: 50vh;
+    left: 0;
+    right: 0;
+    margin-top: 5vh;
+    top: 20vh;
+    bottom: 0;
+}
+
+.AddReceiptTitle {
+    width: 80%;
+    height: 10%;
+    background-color: transparent;
+    text-align: center;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 2vw;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.CloseReceiptAdd {
+    width: 10%;
+    height: 10%;
+    background-color: transparent;
+    text-align: right;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 2vw;
+    position: absolute;
+    top: 0;
+    left: 85%;
+    cursor: pointer;
+}
+
+
+.DataEntryHolder {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    left: 0;
+    right: 0;
+    margin-top: 10%;
+    height: 10%;
+}
+
+.DataEntry {
+    margin-left: 3.5%;
+    margin-right: auto;
+    width: 90%;
+    left: 0;
+    right: 0;
+    height: 50%;
+}
+
+label {
+    width: 10%;
+    font-size: 1vw;
+    height: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.SubmitReceiptButton {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    left: 0;
+    right: 0;
+    margin-top: 5%;
+    height: 10%;
+    display: block;
+    text-align: center;
+    line-height: 5vh;
+    background-color: lightblue;
+    font-family: 'Archivo Narrow', sans-serif;
+    border-radius: 10%;
+}
+
+.SubmitReceiptButton:hover {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    left: 0;
+    right: 0;
+    margin-top: 5%;
+    height: 10%;
+    display: block;
+    text-align: center;
+    line-height: 5vh;
+    background-color: rgb(104, 199, 231);
+    font-family: 'Archivo Narrow', sans-serif;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+.addRButton {
+    width: 3.5%;
+    height: 5vh;
+    background-color: whitesmoke;
+    text-align: center;
+    line-height: 5vh;
+    color: lightblue;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 2vw;
+    border-radius: 50%;
+    margin-left: 10%;
+}
+
+.addRButton:hover {
+    background-color: gray;
+    cursor: pointer;
+}
+
+.NavigationReceipts {
+    width: 100%;
+    height: 5vh;
+    background-color: transparent;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 11vh;
+    display: flex;
+}
+
+.NavigationReceiptsTitle {
+    width: 20%;
+    height: 100%;
+    background-color: transparent;
+    text-align: center;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 2vw;
+    margin-left: 20%;
+}
+
+.ReceiptsHolder {
+    width: 100%;
+    background-color: transparent;
+    height: 0;
+}
+
+.ReceiptItem {
+    width: 80%;
+    height: 8vh;
+    margin-top: 2vh;
+    background-color: whitesmoke;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ReceiptChildItem {
+    width: 20%;
+    height: 7vh;
+    line-height: 3.5vh;
+    text-align: center;
+    margin-top: 0.5vh;
+    margin-bottom: auto;
+    margin-left: 4%;
+    background-color: white;
+    font-size: 1vw;
+    font-family: 'Archivo Narrow', sans-serif;
+    display: inline-block;
+}
