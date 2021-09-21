@@ -151,7 +151,7 @@
 
               let amountItem = document.createElement("div")
               amountItem.classList.add("ReceiptChildItem")
-              amountItem.innerHTML = "<u>Amount</u><br>" + "<b>" + data.holdata[i].amount + "</b>"
+              amountItem.innerHTML = "<u>Amount</u><br>" + "<b>" + "$" + data.holdata[i].amount + "</b>"
               newItem.append(amountItem)
 
               let paymentItem = document.createElement("div")
@@ -171,6 +171,11 @@
     }
 
     updateReceiptsList()
+
+
+    // function FormatDate(dateString) {
+
+    // }
   </script>
 
 </html>
