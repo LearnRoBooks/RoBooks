@@ -6,4 +6,4 @@ const Schema = mongoose.Schema({
 })
 
 
-module.exports = mongoose.model('Receipts', Schema)
+module.exports = mongoose.model('receipts', Schema)
