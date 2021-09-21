@@ -124,9 +124,9 @@
             let oldReceiptElements = document.getElementsByClassName("ReceiptItem")
 
 
-            for (var q = 0; q < oldReceiptElements.length; ++q) {
-              console.log('Removing', q)
-              oldReceiptElements[q].remove()
+            while (oldReceiptElements[0]) {
+              console.log('Removing')
+              oldReceiptElements[0].remove()
             }
 
             document.getElementById('ReceiptsHolder').style.height = (10.5*data.holdata.length) + "vh"
