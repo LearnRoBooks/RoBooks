@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose')
-const Receipts = require('../src/models/receipts')
+const Receipts = require('./models/Receipts')
 require('dotenv/config')
 
 const app = express();
