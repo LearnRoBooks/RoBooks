@@ -33,9 +33,16 @@
 
             <div class="NavigationReceipts">
               <div class="NavigationReceiptsTitle"><b>My Receipts</b></div> 
+              <a id="SortBy" class="SortButton"><b>Sort</b></a>
               <a id="AddReceipt" class="addRButton"><b>+</b></a>
             </div>
 
+            <div class="ItemLabels">
+              <div class="ItemLabel"><u>Date</u></div>
+              <div class="ItemLabel"><u>Place</u></div>
+              <div class="ItemLabel"><u>Amount</u></div>
+              <div class="ItemLabel"><u>Payment</u></div>
+            </div>
             <div id="ReceiptsHolder" class="ReceiptsHolder">
 
             </div>
@@ -141,22 +148,22 @@
 
               let dateItem = document.createElement("div")
               dateItem.classList.add("ReceiptChildItem")
-              dateItem.innerHTML = "<u>Date</u><br>" + "<b>" + data.holdata[i].date + "</b>"
+              dateItem.innerHTML = "<b>" + data.holdata[i].date + "</b>"
               newItem.append(dateItem)
 
               let placeItem = document.createElement("div")
               placeItem.classList.add("ReceiptChildItem")
-              placeItem.innerHTML = "<u>Place</u><br>" + "<b>" + data.holdata[i].place + "</b>"
+              placeItem.innerHTML = "<b>" + data.holdata[i].place + "</b>"
               newItem.append(placeItem)
 
               let amountItem = document.createElement("div")
               amountItem.classList.add("ReceiptChildItem")
-              amountItem.innerHTML = "<u>Amount</u><br>" + "<b>" + "$" + data.holdata[i].amount + "</b>"
+              amountItem.innerHTML = "<b>" + "$" + data.holdata[i].amount + "</b>"
               newItem.append(amountItem)
 
               let paymentItem = document.createElement("div")
               paymentItem.classList.add("ReceiptChildItem")
-              paymentItem.innerHTML = "<u>Payment</u><br>" + "<b>" + data.holdata[i].payment + "</b>"
+              paymentItem.innerHTML = "<b>" + data.holdata[i].payment + "</b>"
               newItem.append(paymentItem)
             }
 
