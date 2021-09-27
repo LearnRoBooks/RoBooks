@@ -15,7 +15,7 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: whitesmoke;
-    height: 6vh;
+    height: 50px;
     z-index: 100;
 }
 
@@ -81,10 +81,11 @@ header {
 
 .UserIcon {
     font-family: 'Archivo Narrow', sans-serif;
-    padding: 10px 20px;
+    width: 40px;
+    height: 40px;
     list-style-type: none;
     color: gray;
-    background-color: gray;  
+    background-color: transparent;  
     cursor: pointer;
     border-radius: 50%;
 }
@@ -316,7 +317,7 @@ label {
     background-color: whitesmoke;
     text-align: center;
     line-height: 50px;
-    color: lightblue;
+    color: black;
     font-family: 'Archivo Narrow', sans-serif;
     font-size: 50px;
     margin-left: 0;
@@ -328,7 +329,7 @@ label {
     background-color: whitesmoke;
     text-align: center;
     line-height: 50px;
-    color: lightblue;
+    color: black;
     font-family: 'Archivo Narrow', sans-serif;
     font-size: 30px;
     margin-left: 0;
@@ -421,4 +422,57 @@ label {
     font-size: 15px;
     font-family: 'Archivo Narrow', sans-serif;
     display: inline-block;
+}
+
+.UserIconImage {
+    font-family: 'Archivo Narrow', sans-serif;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.DropDown {
+    height: 300px;
+    width: 200px;
+    background-color: whitesmoke;
+    position: absolute;
+    right: 0;
+    display: none;
+}
+
+.DropDownItem {
+    height: 50px;
+    width: 200px;
+    background-color: whitesmoke;
+    text-align: center;
+    background-color: transparent;
+    display: inline-block;
+    line-height: 50px;
+    text-decoration: none;
+    font-size: 30px;
+    color: black;
+}
+
+.DropDownItem:hover {
+    background-color: gray;
+}
+
+.DropDownImage {
+    width: 50px;
+    background-color: transparent;
+    height: 50px;
+    display: inline-block;
+    left: 0;
+    position: absolute;
+    border: 0px;
+}
+
+.DropDownText {
+    width: 120px;
+    text-align: left;
+    height: 50px;
+    display: inline-block;
+    background-color: transparent;
+    position: absolute;
+    left: 80px;
 }

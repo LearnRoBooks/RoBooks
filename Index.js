@@ -107,6 +107,12 @@ app.get('/getData', checkAuthenticated, async (Request,Response) => {
     }
 })
 
+app.get('/oauth', checkAuthenticated, async (Request,Response) => {
+    let user = Request.user;
+
+    Response.json(user);
+})
+
 app.get('/logout', (Request,Response) =>{
     Response.clearCookie('session-token')
     Response.redirect('/login')
