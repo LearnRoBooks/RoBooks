@@ -321,6 +321,8 @@ label {
     font-family: 'Archivo Narrow', sans-serif;
     font-size: 50px;
     margin-left: 0;
+    box-shadow: 2.5px 2.5px 2.5px gray;
+    border-radius: 10%;
 }
 
 .SortButton {
@@ -329,10 +331,12 @@ label {
     background-color: whitesmoke;
     text-align: center;
     line-height: 50px;
-    color: black;
+    color: black;   
     font-family: 'Archivo Narrow', sans-serif;
     font-size: 30px;
     margin-left: 0;
+    box-shadow: 2.5px 2.5px 2.5px gray;
+    border-radius: 10%;
 }
 
 .addRButton:hover {

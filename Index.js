@@ -57,7 +57,7 @@ app.post('/login', (Request,Response) => {
 app.get('/profile', checkAuthenticated, async (Request,Response) => {
     let user = Request.user;
 
-    console.log(user)
+    console.log(user, "USER")
 
     try{
         const ReceiptsList = await Receipts.findById(user.email);
@@ -71,10 +71,10 @@ app.get('/profile', checkAuthenticated, async (Request,Response) => {
 
             Receiptnew.save()
                 .then(data => {
-                    Response.json(data);
+                    console.log(data)
                 })
                 .catch(err => {
-                    Response.json({message: err})
+                    console.log(err)
                 })
         }
         console.log(ReceiptsList)
@@ -103,7 +103,7 @@ app.get('/getData', checkAuthenticated, async (Request,Response) => {
         
     }catch(err){
         console.log(err)
-        Response.send(err)
+        Response.json(err)
     }
 })
 
@@ -172,6 +172,7 @@ function checkAuthenticated(req, res, next){
       .catch(err=>{
           res.redirect('/login')
       })
+
 
 }
 

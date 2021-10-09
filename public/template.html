@@ -112,6 +112,10 @@
       }
     })
 
+    document.getElementById("SortBy").addEventListener("click", async => {
+      SortByDate()
+    })
+
     document.getElementById("DoneReceipt").addEventListener("click", async => {
       let data = {
         date: document.getElementById("dateData").value,
@@ -129,21 +133,67 @@
           body: JSON.stringify(data)
         });
         
-        updateReceiptsList()
+        SortByDate(false)
         console.log('Completed!', response);
       } catch(err) {
         console.error(`Error: ${err}`);
       }
     })
 
-    //Send GET Requests to Retrieve Receipts
-    async function updateReceiptsList() {
+    //SEND GET REQUEST TO RECEIEVE GOOGLE DATA, SUCH AS ICON
+    async function GetOAuthData() {
+      const response = await fetch('/oauth', {
+            method: 'get',
+      });
+
+      response.json()
+      .then( data => {
+        document.getElementById("UserIconImage").src = data.picture;
+      })
+    }
+
+
+    //FIND FUNCTION FOR ARRAYS
+    function arrayfind(array, toFind) {
+      console.log(array,toFind);
+
+      for (let q = 0; q < array.length; q++) {
+        if (array[q] == toFind) {
+          return true
+        }
+      }
+
+      return false;
+    }
+
+    //CONVERTS DATE TYPE TO NUMBER FOR COMPARISON
+    function dateToNum(date) {
+      let year = 0;
+
+      let f_index = 0
+
+      while (date[f_index] != '-') {
+        ++f_index;
+      }
+
+      year = Number(date.substring(0,f_index))
+
+      let month = Number(date.substring(f_index + 1, f_index + 3))
+      month = month*40
+
+      let day = Number(date.substring(f_index + 4, f_index + 6))
+
+
+      return day + month + year;
+    }
+
+    //SORTS ALL DATA BY DATE
+    async function SortByDate(increasing) {
       try {     
           const response = await fetch('/getData', {
             method: 'get',
           });
-      
-          console.log('Completed!');
+    
 
           response.json()
           .then(data => {
@@ -158,9 +208,30 @@
 
             document.getElementById('ReceiptsHolder').style.height = (10.5*data.holdata.length) + "vh"
 
-            console.log(data.holdata)
+
+            let SmallestTab = []
             
             for (let i = 0; i < data.holdata.length; ++i) {
+              let smallest = 999999
+              let smallestIndex = 0
+
+              for (let g = 0; g < data.holdata.length; ++g) {
+                console.log(arrayfind(SmallestTab, g), "ARRAYFIND")
+                console.log(dateToNum(data.holdata[g].date), "DATETONUM", smallest)
+                console.log(data.holdata[g].place, "PLACEHere")
+                console.log(g, "GHERE")
+                if (arrayfind(SmallestTab, g) == true) {
+                  console.log('Found Similiar')
+                } else if (dateToNum(data.holdata[g].date) < smallest) {
+                  smallest = dateToNum(data.holdata[g].date)
+                  smallestIndex = g
+                }
+              }
+
+              console.log(smallestIndex, "SMALLESTINDEX") 
+
+              SmallestTab.push(smallestIndex)
+
               let newItem = document.createElement("div")
               newItem.classList.add("ReceiptItem")
 
@@ -168,22 +239,23 @@
 
               let dateItem = document.createElement("div")
               dateItem.classList.add("ReceiptChildItem")
-              dateItem.innerHTML = "<b>" + data.holdata[i].date + "</b>"
+              dateItem.innerHTML = "<b>" + data.holdata[smallestIndex].date + "</b>"
               newItem.append(dateItem)
 
               let placeItem = document.createElement("div")
               placeItem.classList.add("ReceiptChildItem")
-              placeItem.innerHTML = "<b>" + data.holdata[i].place + "</b>"
+              placeItem.innerHTML = "<b>" + data.holdata[smallestIndex].place + "</b>"
               newItem.append(placeItem)
+              console.log(data.holdata[smallestIndex].place)
 
               let amountItem = document.createElement("div")
               amountItem.classList.add("ReceiptChildItem")
-              amountItem.innerHTML = "<b>" + "$" + data.holdata[i].amount + "</b>"
+              amountItem.innerHTML = "<b>" + "$" + data.holdata[smallestIndex].amount + "</b>"
               newItem.append(amountItem)
 
               let paymentItem = document.createElement("div")
               paymentItem.classList.add("ReceiptChildItem")
-              paymentItem.innerHTML = "<b>" + data.holdata[i].payment + "</b>"
+              paymentItem.innerHTML = "<b>" + data.holdata[smallestIndex].payment + "</b>"
               newItem.append(paymentItem)
             }
 
@@ -197,24 +269,14 @@
         }
     }
 
-    async function GetOAuthData() {
-      const response = await fetch('/oauth', {
-            method: 'get',
-      });
 
-      response.json()
-      .then( data => {
-        document.getElementById("UserIconImage").src = data.picture;
-      })
-    }
+    //INITIALLY GET ALL DATES AND GOOGLE DATA
 
-    updateReceiptsList()
+    SortByDate(false)
 
     GetOAuthData()
 
-    // function FormatDate(dateString) {
-
-    // }
+  
   </script>
 
 </html>
