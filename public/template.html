@@ -81,6 +81,33 @@
 
               
             </div>
+
+
+            <div id="SortMenu" class="AddReceiptMenu">
+              <div class="AddReceiptTitle">Sorting Settings</div>
+              <a id="CloseSortMenu" class ="CloseReceiptAdd">X</a>
+
+              <div class="DataEntryHolder">
+                <label for="SortByTypes">Sort By: </label>
+                <select name="SortByTypes" id ="SortByTypes" class ="DataEntry">
+                  <option value="Date">Date</option>
+                  <option value="Amount">Amount</option>
+                </select>
+              </div>
+             
+              <div class="DataEntryHolder">
+                <label for="SortingType">Increasing or Decreasing: </label>
+                <select name="SortingType" id ="SortingType" class ="DataEntry">
+                  <option value="Increasing">Increasing</option>
+                  <option value="Decreasing">Decreasing</option>
+                </select>
+              </div>
+       
+              <a id="SortingButton" class="SubmitReceiptButton"><b>Sort</b></a>
+
+            
+          </div>
+
           </div>
         </main>
   </body>
@@ -100,6 +127,18 @@
         Element.style.display = "none";
     })
 
+    document.getElementById("SortBy").addEventListener("click", async => {
+        let Element = document.getElementById("SortMenu")
+
+        Element.style.display = "block";
+    })
+
+    document.getElementById("CloseSortMenu").addEventListener("click", async => {
+        let Element = document.getElementById("SortMenu")
+
+        Element.style.display = "none";
+    })
+
     document.getElementById("DropDownIcon").addEventListener("click", async => {
       let Element = document.getElementById("DropDown")
 
@@ -112,10 +151,18 @@
       }
     })
 
-    document.getElementById("SortBy").addEventListener("click", async => {
-      SortByDate()
+    //ADD SORT BUTTON EVENT LISTENER THAT SORTS WITH GIVEN CRITERIA, SORTINGTYPE & INCREASING/DECREASING
+    document.getElementById("SortingButton").addEventListener("click", async => {
+      if (document.getElementById("SortingType").value == "Increasing") {
+        SortBy(true, document.getElementById("SortByTypes").value)
+      } else {
+        SortBy(false, document.getElementById("SortByTypes").value)
+      }
+
+      document.getElementById("SortMenu").style.display = "none"
     })
 
+    //ADD NEW RECEIPT TO DB AND REFRESH RECEIPTS
     document.getElementById("DoneReceipt").addEventListener("click", async => {
       let data = {
         date: document.getElementById("dateData").value,
@@ -133,7 +180,7 @@
           body: JSON.stringify(data)
         });
         
-        SortByDate(false)
+        SortBy(false, "Date")
         console.log('Completed!', response);
       } catch(err) {
         console.error(`Error: ${err}`);
@@ -208,7 +255,7 @@
     }
 
     //SORTS ALL DATA BY DATE
-    async function SortByDate(increasing) {
+    async function SortBy(increasing, SortingType) {
       try {     
           const response = await fetch('/getData', {
             method: 'get',
@@ -229,22 +276,41 @@
             document.getElementById('ReceiptsHolder').style.height = (10.5*data.holdata.length) + "vh"
 
 
+
+    
+
             let SmallestTab = []
             
             for (let i = 0; i < data.holdata.length; ++i) {
               let smallest = 999999
+
+              if (increasing == false) {
+                smallest = 0
+              }
+             
               let smallestIndex = 0
 
-              for (let g = 0; g < data.holdata.length; ++g) {
-                console.log(arrayfind(SmallestTab, g), "ARRAYFIND")
-                console.log(dateToNum(data.holdata[g].date), "DATETONUM", smallest)
-                console.log(data.holdata[g].place, "PLACEHere")
-                console.log(g, "GHERE")
-                if (arrayfind(SmallestTab, g) == true) {
-                  console.log('Found Similiar')
-                } else if (dateToNum(data.holdata[g].date) < smallest) {
-                  smallest = dateToNum(data.holdata[g].date)
-                  smallestIndex = g
+              for (let g = 0; g < data.holdata.length; ++g) {    
+                if (SortingType == "Date") {
+                  if (arrayfind(SmallestTab, g) == true) {
+                    console.log('Found Similiar')
+                  } else if (increasing == true && dateToNum(data.holdata[g].date) < smallest) {
+                    smallest = dateToNum(data.holdata[g].date)
+                    smallestIndex = g
+                  } else if (increasing == false && dateToNum(data.holdata[g].date) > smallest) {
+                    smallest = dateToNum(data.holdata[g].date)
+                    smallestIndex = g
+                  }
+                } else {
+                  if (arrayfind(SmallestTab, g) == true) {
+                    console.log('Found Similiar')
+                  } else if (increasing == true && Number(data.holdata[g].amount) < smallest) {
+                    smallest = Number(data.holdata[g].amount)
+                    smallestIndex = g
+                  } else if (increasing == false && Number(data.holdata[g].amount) > smallest) {
+                    smallest = Number(data.holdata[g].amount)
+                    smallestIndex = g
+                  }
                 }
               }
 
@@ -292,7 +358,7 @@
 
     //INITIALLY GET ALL DATES AND GOOGLE DATA
 
-    SortByDate(false)
+    SortBy(false, "Date")
 
     GetOAuthData()
 
