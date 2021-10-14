@@ -164,12 +164,31 @@
 
     //ADD NEW RECEIPT TO DB AND REFRESH RECEIPTS
     document.getElementById("DoneReceipt").addEventListener("click", async => {
-      let data = {
+      AddReceiptToDB()
+    })
+
+
+
+    async function AddReceiptToDB() {
+      const response = await fetch('/getData', {
+          method: 'get',
+      });
+
+      var ToIndex = 0;
+
+      response.json()
+      .then(newdata => {
+        console.log(newdata.holdata.length, "LENGTH HERE")
+        ToIndex = newdata.holdata.length + 1;
+
+        let data = {
         date: document.getElementById("dateData").value,
         place: document.getElementById("placeData").value,
         amount: document.getElementById("amountData").value,
-        payment: document.getElementById("paymentData").value
+        payment: document.getElementById("paymentData").value,
+        index: ToIndex
       }
+
       try {     
         document.getElementById("AddReceiptMenu").style.display = "none";
         const response = fetch('/profile', {
@@ -185,7 +204,10 @@
       } catch(err) {
         console.error(`Error: ${err}`);
       }
-    })
+      })
+
+  
+    }
 
     //SEND GET REQUEST TO RECEIEVE GOOGLE DATA, SUCH AS ICON
     async function GetOAuthData() {
@@ -254,7 +276,7 @@
       return day + month + year;
     }
 
-    //SORTS ALL DATA BY DATE
+    //SORTS ALL DATA BY GIVEN CRITERIA, INCREASING/DECREASING & SORTINGTYPE
     async function SortBy(increasing, SortingType) {
       try {     
           const response = await fetch('/getData', {
@@ -314,6 +336,8 @@
                 }
               }
 
+              const StoredSmallest = smallestIndex
+
               console.log(smallestIndex, "SMALLESTINDEX") 
 
               SmallestTab.push(smallestIndex)
@@ -343,6 +367,32 @@
               paymentItem.classList.add("ReceiptChildItem")
               paymentItem.innerHTML = "<b>" + data.holdata[smallestIndex].payment + "</b>"
               newItem.append(paymentItem)
+
+              let ReceiptHover = document.createElement("div")
+              ReceiptHover.classList.add("ReceiptHover")
+              newItem.append(ReceiptHover)
+
+              let DeleteReceipt = document.createElement("img")
+              DeleteReceipt.classList.add("DeleteReceipt")
+              DeleteReceipt.src = "Garbage.png"
+              newItem.append(DeleteReceipt)
+
+              DeleteReceipt.addEventListener("click", async => {
+                newItem.remove()
+                try {
+                  const response = fetch('/remove', {
+                    method: 'post',
+                    headers: {
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data.holdata[smallestIndex])
+                  });
+                } catch (err) {
+                  console.log(err);
+                }
+              })
+
+        
             }
 
           })

@@ -339,12 +339,12 @@ label {
 }
 
 .addRButton:hover {
-    background-color: gray;
+    box-shadow: 0px 4px 4px gray;
     cursor: pointer;
 }
 
 .SortButton:hover {
-    background-color: gray;
+    box-shadow: 0px 4px 4px gray;
     cursor: pointer;
 }
 
@@ -387,6 +387,11 @@ label {
     justify-content: center;
     border-bottom: 0.05px black solid;
 }
+
+.ReceiptItem:hover > .DeleteReceipt {
+    display: block;
+}
+
 
 .ReceiptChildItem {
     width: 20%;
@@ -434,6 +439,10 @@ label {
     border-radius: 50%;
 }
 
+.UserIconImage:hover {
+    box-shadow: 0px 3px 3px gray;
+}
+
 .DropDown {
     height: 300px;
     width: 200px;
@@ -478,4 +487,27 @@ label {
     background-color: transparent;
     position: absolute;
     left: 80px;
+}
+
+.DeleteReceipt {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    right: 15%;
+    display: none;
+}
+
+.DeleteReceipt:hover {
+    box-shadow: 0px 2px 2px gray;
+    display: block;
+}
+
+.ReceiptHover {
+    height: 40px;
+    width: 18%;
+    position: absolute;
+    right: 0;
+    display: block;
+    background-color: white;
+    z-index: 0;
 }

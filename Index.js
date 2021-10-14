@@ -130,7 +130,8 @@ app.post('/profile', checkAuthenticated, async (req, res) => {
             date: req.body.date,
             place: req.body.place,
             amount: req.body.amount,
-            payment: req.body.payment
+            payment: req.body.payment,
+            index: req.body.index
         }
 
         console.log(req)
@@ -145,6 +146,31 @@ app.post('/profile', checkAuthenticated, async (req, res) => {
         res.json({message: err})
     }
     
+})
+
+
+app.post('/remove', checkAuthenticated, async (req,res) => {
+    try {
+        const dataToUpdate = {
+            date: req.body.date,
+            place: req.body.place,
+            amount: req.body.amount,
+            payment: req.body.payment,
+            index: req.body.index
+        }
+
+        console.log(req)
+        console.log(req.body)
+
+        const updatedReceipt = await Receipts.updateOne({_id: req.user.email}, { $pull: { holdata: dataToUpdate}})
+
+        console.log('Updated Receipt')
+        console.log(updatedReceipt)
+        res.json(updatedReceipt)
+    } catch (err) {
+        console.log(err)
+        res.json({message: err})
+    }
 })
 
 
