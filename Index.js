@@ -9,6 +9,8 @@ const cookieParser = require('cookie-parser')
 const BodyParser = require('body-parser')
 const TemplatePath = path.join(__dirname, 'public', 'template.html');
 const LoginPage = path.join(__dirname, 'public', 'loginPage.html');
+const SettingsPage = path.join(__dirname, 'public', 'settings.html');
+const ComingSoonPage = path.join(__dirname, 'public', 'comingsoon.html');
 
 
 //GOOGLE AUTHENTICATION
@@ -24,7 +26,7 @@ app.use(cookieParser());
 app.use(BodyParser.json());
 
 app.get('/', checkAuthenticated, (Request,Response) => {
-    Response.redirect('/profile');
+    Response.redirect('/myreceipts');
 });
 
 app.get('/login', (Request,Response) => {
@@ -54,7 +56,7 @@ app.post('/login', (Request,Response) => {
     catch(console.error);
 })
 
-app.get('/profile', checkAuthenticated, async (Request,Response) => {
+app.get('/myreceipts', checkAuthenticated, async (Request,Response) => {
     let user = Request.user;
 
     console.log(user, "USER")
@@ -64,7 +66,8 @@ app.get('/profile', checkAuthenticated, async (Request,Response) => {
         if (ReceiptsList == null) {
             const Receiptnew = new Receipts({
                 _id: Request.user.email,
-                holdata: []
+                holdata: [],
+                settings: ['DateDecreasing']
             });
 
             console.log(Receiptnew)
@@ -86,6 +89,18 @@ app.get('/profile', checkAuthenticated, async (Request,Response) => {
 
     
     Response.sendFile(TemplatePath)
+})
+
+app.get('/analytics', checkAuthenticated, async (Request,Response) => {
+    Response.sendFile(ComingSoonPage);
+})
+
+app.get('/export', checkAuthenticated, async (Request,Response) => {
+    Response.sendFile(ComingSoonPage);
+})
+
+app.get('/settings', checkAuthenticated, async (Request,Response) => {
+    Response.sendFile(SettingsPage);
 })
 
 app.get('/getData', checkAuthenticated, async (Request,Response) => {
@@ -121,7 +136,7 @@ app.get('/logout', (Request,Response) =>{
 //CONNECT TO DATABASE
 mongoose.connect(process.env.DB_CONNECTION, () => {console.log('Connected to DB')})
 
-app.post('/profile', checkAuthenticated, async (req, res) => {
+app.post('/myreceipts', checkAuthenticated, async (req, res) => {
 
     console.log('Request')
 

@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema({
     _id: String,
-    holdata: []
+    holdata: [],
+    settings: []
 })
 
 
