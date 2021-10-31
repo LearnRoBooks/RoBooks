@@ -620,8 +620,8 @@ label {
 
 .BarLabel {
     width: 100%;
-    height: 25px;
-    line-height: 12.5px;
+    height: 2vw;
+    line-height: 1vw;
     text-align: center;
     font-family: 'Archivo Narrow', sans-serif;
     position: absolute;
