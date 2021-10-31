@@ -589,3 +589,65 @@ label {
     font-family: 'Archivo Narrow', sans-serif;
     font-size: 200px;
 }
+
+.BarGraphContainer {
+    width: 50%;
+    margin: auto;
+    background-color: whitesmoke;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    position: relative;
+}
+
+.MainTitle {
+    width: 100%;
+    height: 50px;
+    font-size: 50px;
+    font-family: 'Archivo Narrow', sans-serif;
+    line-height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.Bar {
+    background-color: lightblue;
+    display: inline-block;
+    position: relative;
+}
+
+.BarLabel {
+    width: 100%;
+    height: 25px;
+    line-height: 12.5px;
+    text-align: center;
+    font-family: 'Archivo Narrow', sans-serif;
+    position: absolute;
+    font-size: 1vw;
+}
+
+.firstpoint {
+    position: absolute;
+    bottom: 0;
+    left: -5%;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 1vw;
+}
+
+.midpoint {
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 1vw;
+}
+
+.finalpoint {
+    position: absolute;
+    top: 0;
+    left: -5%;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 1vw;
+}

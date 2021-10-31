@@ -11,6 +11,7 @@ const TemplatePath = path.join(__dirname, 'public', 'template.html');
 const LoginPage = path.join(__dirname, 'public', 'loginPage.html');
 const SettingsPage = path.join(__dirname, 'public', 'settings.html');
 const ComingSoonPage = path.join(__dirname, 'public', 'comingsoon.html');
+const AnalyticsPage = path.join(__dirname, 'public', 'analytics.html');
 
 
 //GOOGLE AUTHENTICATION
@@ -92,7 +93,7 @@ app.get('/myreceipts', checkAuthenticated, async (Request,Response) => {
 })
 
 app.get('/analytics', checkAuthenticated, async (Request,Response) => {
-    Response.sendFile(ComingSoonPage);
+    Response.sendFile(AnalyticsPage);
 })
 
 app.get('/export', checkAuthenticated, async (Request,Response) => {
