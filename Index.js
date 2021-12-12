@@ -12,7 +12,7 @@ const LoginPage = path.join(__dirname, 'public', 'loginPage.html');
 const SettingsPage = path.join(__dirname, 'public', 'settings.html');
 const ComingSoonPage = path.join(__dirname, 'public', 'comingsoon.html');
 const AnalyticsPage = path.join(__dirname, 'public', 'analytics.html');
-var enforce = require('express-sslify');
+// var enforce = require('express-sslify');
 
 //GOOGLE AUTHENTICATION
 const {OAuth2Client} = require('google-auth-library');
@@ -21,7 +21,7 @@ const CLIENT_ID = '1030385101120-oud1pj9gnqed70prr548rslnr4j8a4us.apps.googleuse
 const client = new OAuth2Client(CLIENT_ID);
 
 //APP USES
-app.use(enforce.HTTPS());
+// app.use(enforce.HTTPS());
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json());
 app.use(cookieParser());
