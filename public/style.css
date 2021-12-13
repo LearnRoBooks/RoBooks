@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap');
+
+* {
+    background-color: #ffd7b5;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    height: 50px;
+    z-index: 100;
+}
+
+.MainNavigation {
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff;
+    position: sticky;
+}
+
+.logo {
+    background-color: #ffffff;
+    height: 60px;
+}
+
+.MainImage {
+    background-color: #ffffff;
+    margin-top: 12.5px;
+    margin-left: 10px;
+}
+
+.navItem {
+    background-color: #ffffff;
+    display: inline-block;
+    margin-left: 5%;
+    margin-top: 12.5px;
+    text-align: center;
+    line-height: 35px;
+    font-size: 20px;
+    font-family: 'Archivo Narrow', sans-serif;
+    text-decoration: none;
+    color: #000000;
+}
+
+.navItem:hover {
+    transition: border-bottom 0.1s;
+    border-bottom: 3px solid black;
+}
+
+.MainContainer {
+    width: 100%;
+    margin-top: 60px;
+    height: 500px;
+}
+
+.custom-shape-divider-top-1638130578 {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    background-color: #ffb38a;
+}
+
+.custom-shape-divider-top-1638130578 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 206px;
+    background-color: #ffb38a;
+}
+
+.custom-shape-divider-top-1638130578 .shape-fill {
+    fill: #ffd7b5;
+}
+
+.RoBooksLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Title {
+    width: 100%;
+    height: 200px;
+    font-family: 'Archivo Narrow', sans-serif;
+    line-height: 100px;
+    font-size: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; 
+}
+
+.CurvedBoxContainer {
+    width: 28%;
+    background-color: #ffffff;
+    border-radius: 40px;
+    margin-left: 4%;
+    height: 300px;
+    display: inline-block;
+    margin-top: 100px;
+}
