@@ -97,7 +97,7 @@ header {
     height: 200px;
     font-family: 'Archivo Narrow', sans-serif;
     line-height: 100px;
-    font-size: 100px;
+    font-size: 80px;
     margin-left: auto;
     margin-right: auto;
     text-align: center; 
@@ -112,6 +112,7 @@ header {
     display: inline-block;
     margin-top: 100px;
     position: relative;
+    text-decoration: none;
 }
 
 .CurvedBoxContainer:hover {
@@ -131,4 +132,6 @@ header {
     left: 0;
     right: 0;
     top: 40%;
+    text-decoration: none;
+    color: #000000;
 }
