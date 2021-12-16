@@ -135,3 +135,73 @@ header {
     text-decoration: none;
     color: #000000;
 }
+
+.LessonHolder {
+    width: 20%;
+    height: 100%;
+    background-color: #ffffff;
+    padding: 0; 
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.MainLessonItem {
+    width: 100%;
+    background-color: #ffffff;
+    display: block;
+    color: #000000;
+    text-align: center;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 20px;
+}
+
+.MainLessonItem:hover {
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.SubLessonItem {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    background-color: whitesmoke;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Archivo Narrow', sans-serif;
+    color: #000000;
+}
+
+.SubLessonItem:hover {
+    cursor: pointer;
+}
+
+.LessonContainer {
+    width: 80%;
+    height: 100%;
+    background-color: #ffffff;
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+.SectionTitle {
+    margin-left: 5%;
+    width: 80%;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: underline;
+    background-color: transparent;
+    margin-top: 10px;
+}
+
+.SectionParagraph {
+    margin-left: 10%;
+    width: 80%;
+    font-size: 20px;
+    background-color: transparent;
+    margin-top: 10px;
+}
