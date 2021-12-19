@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>RoBooks</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" href="../../images/LuaLogo.png">
+
+
+  </head>
+  <body>
+    <header>
+      <a class = "logo" href=""><img class = "MainImage" src="../../images/LuaLogo.png" alt = "logo"></a>
+      <nav class ="MainNavigation">
+        <a class="navItem" href="../../../index.html"><b style="background-color: #ffffff;">Home</b></a>
+        <a class="navItem" href="../../pages/lessons.html"><b style="background-color: #ffffff;">Lessons</b></a>
+        <a class="navItem" href="../../pages/practice.html"><b style="background-color: #ffffff;">Practice</b></a>
+      </nav>
+    </header>
+
+    <div class="MainContainer" id="MainContainer" style="background-color: #ffffff; width: 80%; margin: auto; margin-top: 100px; height: 2000px; overflow: hidden; position: relative;">
+      <ol class="LessonHolder">
+        <a class="MainLessonItem" href="../lessons.html">
+          <b style="background-color: transparent;">Chapter 1:</b> Variables, values and types
+        </a>
+
+        <a class="MainLessonItem" href="../lessons/chapter2.html">
+          <b style="background-color: transparent;">Chapter 2:</b> Properties and Instances
+        </a>
+
+        <a href="#2.1" class="SubLessonItem">
+          2.1: Instances
+        </a>
+
+        <a class="MainLessonItem" href="../lessons/chapter3.html">
+          <b style="background-color: transparent;">Chapter 3:</b> Conditionals and If Statements
+        </a>
+      </ol>
+
+      <div class="LessonContainer">
+        <div class="SectionTitle" id="2.1">2.1: Instances</div>
+
+        <p class="SectionParagraph">
+          Simply put, an Instance is an object in Roblox. The most common Instance in Roblox is a "part" which is used when creating builds on Roblox Studio. However, an Instance can take many forms and they are all listed on <a href="https://developer.roblox.com/en-us/api-reference/index" style="background-color: transparent;" target="_blank">developer.roblox.com</a>
+        </p>
+
+        <p class="SectionParagraph">
+          Although you may be overwhelmed by the amount of Instance that exist on Roblox, only a few are commonly used. Roblox has created Instances for many different uses which allows for endless creation.
+        </p>
+
+        <p class="SectionParagraph">
+          Now that you know what an Instance is, how do we use it in our code?
+        </p>
+        
+        <p class="SectionParagraph">
+          Creating an Instance is as simple as writing
+          <br>
+          <b style="background-color: yellow;">Instance.new("InstanceName")</b>
+          <br>
+          where "InstanceName" is the name of the Instance you want to create.
+        </p>
+
+        <p class="SectionParagraph">
+          But what is "Instance.new()"?
+        </p>
+
+        <p class="SectionParagraph">
+          "Instance.new()" is a function which creates a new instance. You will learn more about about functions in Chapter 4, but for now, a function is just a block of code that changes something.
+        </p>
+
+        <div class="SectionTitle" id="2.2">2.2: Properties</div>
+
+        <div class="SectionTitle" id="2.3">2.3: Manipulating Properties of Instances</div>
+
+        <p class="SectionParagraph">
+          When creating an Instance, if we only write:
+          <br>
+          <b style="background-color: yellow;">Instance.new("InstanceName")</b>
+          <br>
+          we will not have access to that Instance later. This will only create the Instance but will not allow us to do anything with it.
+        </p>
+
+        
+
+        <a class="NextChapter" href="../lessons/chapter3.html">Chapter 3: Properties and Instances</a>
+      </div>
+    </div>
+
+
+    <script>
+      function OnResized() {
+        let MainContainer = document.getElementById("MainContainer")
+
+        if (MainContainer.clientWidth < 1308) {
+          MainContainer.style.height = ((Math.abs(1308 - MainContainer.clientWidth)/868 + 1)*2000) + "px"
+        } else {
+          MainContainer.style.height = 2000 + "px"
+        }
+      }
+
+      window.onresize = OnResized;
+
+      OnResized()
+    </script>
+  </body>
+</html>

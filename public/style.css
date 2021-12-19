@@ -153,6 +153,7 @@ header {
     text-align: center;
     font-family: 'Archivo Narrow', sans-serif;
     font-size: 20px;
+    text-decoration: none;
 }
 
 .MainLessonItem:hover {
@@ -204,4 +205,51 @@ header {
     font-size: 20px;
     background-color: transparent;
     margin-top: 10px;
+}
+
+.CodeSample {
+    background-color: rgb(38, 50, 56);;
+    width: 70%;
+    padding: 5% 5% 5%;
+    border-radius: 10px;
+    margin-left: 10%;
+    font-family: Monaco,Consolas,Lucida Console,monospace;
+    font-weight: bold;
+    color: rgb(238, 255, 255);
+}
+
+.purplekeyword {
+    font-weight: bold; 
+    background-color: transparent; 
+    color: rgb(199, 146, 234);
+    font-family: Monaco,Consolas,Lucida Console,monospace;
+}
+
+.comment {
+    background-color: transparent;
+    font-weight: normal;
+    color: rgb(195, 232, 141);
+}
+
+.operator {
+    color: rgb(137, 221, 255);
+    font-family: Monaco,Consolas,Lucida Console,monospace;
+    font-weight: bold; 
+    background-color: transparent; 
+}
+
+.number {
+    color: rgb(247, 140, 108);
+    font-family: Monaco,Consolas,Lucida Console,monospace;
+    font-weight: bold; 
+    background-color: transparent; 
+}
+
+.NextChapter {
+    background-color: transparent;
+    text-decoration: underline;
+    color: blue;
+    font-size: 30px;
+    width: 80%;
+    margin-left: 5%;
 }
