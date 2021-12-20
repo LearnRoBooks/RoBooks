@@ -245,6 +245,20 @@ header {
     background-color: transparent; 
 }
 
+.functionkeyword {
+    color: rgb(241, 72, 20);
+    font-family: Monaco,Consolas,Lucida Console,monospace;
+    font-weight: bold; 
+    background-color: transparent; 
+}
+
+.string {
+    color: #c3e88d;
+    font-family: Monaco,Consolas,Lucida Console,monospace;
+    font-weight: bold; 
+    background-color: transparent; 
+}
+
 .NextChapter {
     background-color: transparent;
     text-decoration: underline;
