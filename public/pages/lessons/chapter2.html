@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>RoBooks</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" href="../../images/LuaLogo.png">
+
+
+  </head>
+  <body>
+    <header>
+      <a class = "logo" href=""><img class = "MainImage" src="../../images/LuaLogo.png" alt = "logo"></a>
+      <nav class ="MainNavigation">
+        <a class="navItem" href="../../../index.html"><b style="background-color: #ffffff;">Home</b></a>
+        <a class="navItem" href="../../pages/lessons.html"><b style="background-color: #ffffff;">Lessons</b></a>
+        <a class="navItem" href="../../pages/practice.html"><b style="background-color: #ffffff;">Practice</b></a>
+      </nav>
+    </header>
+
+    <div class="MainContainer" id="MainContainer" style="background-color: #ffffff; width: 80%; margin: auto; margin-top: 100px; height: 2000px; overflow: hidden; position: relative;">
+      <ol class="LessonHolder">
+        <a class="MainLessonItem" href="../lessons.html">
+          <b style="background-color: transparent;">Chapter 1:</b> Variables, values and types
+        </a>
+
+        <a class="MainLessonItem" href="../lessons/chapter2.html" style="background-color: whitesmoke;">
+          <b style="background-color: transparent;">Chapter 2:</b> Properties and Instances
+        </a>
+
+        <a href="#2.1" class="SubLessonItem">
+          2.1: Instances
+        </a>
+
+        <a href="#2.2" class="SubLessonItem">
+          2.2: Properties
+        </a>
+
+        <a href="#2.3" class="SubLessonItem">
+          2.3: Manipulating Properties of Instances
+        </a>
+
+        <a href="#2.4" class="SubLessonItem">
+          2.4: Hierarchy
+        </a>
+
+        <a class="MainLessonItem" href="../lessons/chapter3.html">
+          <b style="background-color: transparent;">Chapter 3:</b> Conditionals and If Statements
+        </a>
+      </ol>
+
+      <div class="LessonContainer">
+        <div class="SectionTitle" id="2.1">2.1: Instances</div>
+
+        <p class="SectionParagraph">
+          Simply put, an Instance is an object in Roblox. The most common Instance in Roblox is a "part" which is used when creating builds on Roblox Studio. However, an Instance can take many forms and they are all listed on <a href="https://developer.roblox.com/en-us/api-reference/index" style="background-color: transparent;" target="_blank">developer.roblox.com</a>
+        </p>
+
+        <p class="SectionParagraph">
+          Although you may be overwhelmed by the amount of Instance that exist on Roblox, only a few are commonly used. Roblox has created Instances for many different uses which allows for endless creation.
+        </p>
+
+        <p class="SectionParagraph">
+          Now that you know what an Instance is, how do we use it in our code?
+        </p>
+        
+        <p class="SectionParagraph">
+          Creating an Instance is as simple as writing
+          <br>
+          <b style="background-color: yellow;">Instance.new("InstanceName")</b>
+          <br>
+          where "InstanceName" is the name of the Instance you want to create.
+        </p>
+
+        <p class="SectionParagraph">
+          But what is "Instance.new()"?
+        </p>
+
+        <p class="SectionParagraph">
+          "Instance.new()" is a function which creates a new instance. You will learn more about about functions in Chapter 4, but for now, a function is just a block of code that changes something.
+        </p>
+
+        <div class="SectionTitle" id="2.2">2.2: Properties</div>
+
+        <p class="SectionParagraph">
+          Properties are just characteristics of Instances. Most of these properties can be manipulated. For Example, a "Part" has a property of "BrickColor" which is just the color of the Part. This color can be manipulated. 
+        </p>
+
+        <p class="SectionParagraph">
+          To manipulate a property of an Instance we can write,
+          <br>
+          <b style="background-color: yellow;">INSTANCE.PROPERTY = (NEW PROPERTY HERE)</b>
+          <br>
+          ,where INSTANCE is the variable name of the Instance and PROPERTY is the property we would like to manipulate.
+        </p>
+
+        <p class="SectionParagraph">
+          Manipulating Properties will be discussed more in the next section.
+        </p>
+
+        <div class="SectionTitle" id="2.3">2.3: Manipulating Properties of Instances</div>
+
+        <p class="SectionParagraph">
+          When creating an Instance, if we only write:
+          <br>
+          <b style="background-color: yellow;">Instance.new("InstanceName")</b>
+          <br>
+          we will not have access to that Instance later. This will only create the Instance but will not allow us to do anything with it.
+        </p>
+
+        <p class="SectionParagraph">
+          This is where variables come in since we can create a variable to store the Instance under.
+          <br>
+          <b style="background-color: yellow;">local Part = Instance.new("Part")</b>
+          <br>
+          This will create a Part that will be stored in the variable "Part"
+        </p>
+
+        <p class="SectionParagraph">
+          Referring back to 2.2, where we discussed how to access properties of Instances, we can change the BrickColor of a part by using the property "BrickColor".
+        </p>
+
+        <p class="SectionParagraph">
+          Therefore, we can change the color of a Part to "Blue" by writing,
+        </p>
+
+        <div class="CodeSample">
+          <b class ="purplekeyword">local</b> Part <b class="operator">=</b> <b class="functionkeyword">Instance.new</b>(<b class="string">"Part"</b>)
+          <br>
+          Part.BrickColor <b class="operator">=</b> <b class="functionkeyword">BrickColor.new</b>(<b class="string">"Blue"</b>)
+        </div>
+
+        <p class="SectionParagraph">
+          The Reason we use "BrickColor.new()" when changing the BrickColor of the Part is that the BrickColor of a part is a special type of value that is achieved by using BrickColor.new().
+        </p>
+
+        <div class="SectionTitle" id="2.4">2.4: Hierarchy</div>
+
+        <p class="SectionParagraph">
+            Another important thing we need to cover on Instances is Hierarchy and how a Roblox Game is organized.
+        </p>
+
+        <p class="SectionParagraph">
+          When we talk about Hierarchy, we are referring to how objects are identified and where they are placed in Roblox Studio.
+        </p>
+
+        <p class="SectionParagraph">
+          In Roblox Studio, there are 14 main Services. What is the job of these Services? Each Service serves as a place where Instances are placed. Each Service has a different purpose and a limit to what objects can be placed in it. In this section, we will only cover the "Workspace". In later chapters, we will cover the purpose of each service.
+        </p>
+
+        <p class="SectionParagraph">
+          The Workspace is one of the main services in Roblox, which is meant to hold objects in the 3D world. For Example, if we wanted a part to displayed in the 3D world, we would have to place our part in the "Workspace".
+        </p>
+
+        <p class="SectionParagraph">
+          But how do we place our object in the Service we want? We can either do it through code or by manually dragging the part to the Service we want.
+        </p>
+
+        <p class="SectionParagraph">
+          Each object in Roblox has a "Parent" property, which dictates where the part is placed in our hierarchy. This "Parent" property can be manipulated through code. For example, going back to our Part that we set to the Color blue, we can set the Parent of this object to the "Workspace" so it can be seen in the 3D world.
+        </p>
+
+        <div class="CodeSample">
+          <b class ="purplekeyword">local</b> Part <b class="operator">=</b> <b class="functionkeyword">Instance.new</b>(<b class="string">"Part"</b>)
+          <br>
+          Part.BrickColor <b class="operator">=</b> <b class="functionkeyword">BrickColor.new</b>(<b class="string">"Blue"</b>)
+          <br>
+          Part.Parent <b class="operator">=</b> <b class ="purplekeyword">workspace</b> <b class="comment">-- Here we change the Parent of the part to workspace, where it can be seen in the 3D world.</b>
+        </div>
+
+        <p class="SectionParagraph">
+          There are 3 different ways we can access the workspace. One way which is shown above is by simply using the keyword "workspace".
+        </p>
+
+        <p class="SectionParagraph">
+          Another way is by accessing the main Parent of all Services which is "game". By writing,
+          <b style="background-color: yellow;">game.Workspace</b>, we can gain access to the Workspace.
+        </p>
+
+        <p class="SectionParagraph">
+          Finally, since the Workspace is a service, we can also write, <b style="background-color: yellow;">game:GetService("Workspace")</b>, to gain access to the Workspace.
+        </p>
+
+        <a class="NextChapter" href="../lessons/chapter3.html">Chapter 3: Conditionals and If Statements</a>
+      </div>
+    </div>
+
+
+    <script>
+      function OnResized() {
+        let MainContainer = document.getElementById("MainContainer")
+
+        if (MainContainer.clientWidth < 1308) {
+          MainContainer.style.height = ((Math.abs(1308 - MainContainer.clientWidth)/868 + 1)*2500) + "px"
+        } else {
+          MainContainer.style.height = 2500 + "px"
+        }
+      }
+
+      window.onresize = OnResized;
+
+      OnResized()
+    </script>
+  </body>
+</html>

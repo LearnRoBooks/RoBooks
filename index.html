@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>RoBooks</title>
+    <link rel="stylesheet" href="public/style.css">
+    <link rel="icon" href="public/images/LuaLogo.png">
+
+
+  </head>
+  <body>
+    <header>
+      <a class = "logo" href=""><img class = "MainImage" src="public/images/LuaLogo.png" alt = "logo"></a>
+      <nav class ="MainNavigation">
+        <a class="navItem" href="index.html"><b style="background-color: #ffffff;">Home</b></a>
+        <a class="navItem" href="public/pages/lessons.html"><b style="background-color: #ffffff;">Lessons</b></a>
+        <a class="navItem" href="public/pages/practice.html"><b style="background-color: #ffffff;">Practice</b></a>
+      </nav>
+    </header>
+
+    <div class="MainContainer">
+      <div class = "RoBooksLogo"><img src="public/images/RoBooksMainLogo.png" style="height: 300px; width: 300px; display: block; margin-left: auto; margin-right: auto;"></div>
+      <div class = "Title"><b>Learn LUAU, Interactively</b></div>
+    </div>
+
+    <div class="custom-shape-divider-top-1638130578">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>  
+
+    <div class="MainContainer" id="2MainContainer" style="background-color: #ffb38a; margin-top: 0; height: 1000px;">
+      <a class="CurvedBoxContainer" href="public/pages/lessons.html">
+        <img class="BoxImage" src="public/images/46271.png" style="background-color: #ffffff; width: 40px; height: 40px; margin-left: auto; margin-right: auto; margin-top: 10%; position: absolute; left: 0; right: 0;">
+        <div class="TextBox">
+          Learn material using our written or video formats.
+        </div>
+      </a>
+      
+      <a class="CurvedBoxContainer" href="https://www.roblox.com/games/5945578598/RoBooks-Learn-LUA" target="_blank">
+        <img class="BoxImage" src="public/images/squarethumback.png" style="background-color: #ffffff; width: 40px; height: 40px; margin-left: auto; margin-right: auto; margin-top: 10%; position: absolute; left: 0; right: 0;">
+        <div class="TextBox">
+          Practice each Lesson by using our interactive Roblox game to solve different practice problems.
+        </div>
+      </a>
+
+      <a class="CurvedBoxContainer" href="https://www.roblox.com/create" target="_blank">
+        <img class="BoxImage" src="public/images/ROBLOX_Studio_icon.png" style="background-color: #ffffff; width: 40px; height: 40px; margin-left: auto; margin-right: auto; margin-top: 10%; position: absolute; left: 0; right: 0;">
+        <div class="TextBox">
+          Apply your new skills in Roblox Studio to create many different things and master what you have learned.
+        </div>
+      </a>
+      
+    </div>
+
+  </body>
+
+  <script>
+
+    function OnResized() {
+      let CurvedContainers = document.getElementsByClassName("CurvedBoxContainer")
+      let maxHeightForWindow = 800;
+
+      for (var i = 0; i < CurvedContainers.length; ++i) {
+        CurvedContainers[i].style.width = "28%"
+        maxHeightForWindow = CurvedContainers[i].clientWidth
+        CurvedContainers[i].style.height = CurvedContainers[i].clientWidth*1.2 + "px"
+      }
+
+      document.getElementById("2MainContainer").style.height = (maxHeightForWindow*1.2 + 200) + "px"
+
+      let TextBoxs = document.getElementsByClassName("TextBox")
+
+
+      for (var g = 0; g < TextBoxs.length; ++g) {
+        TextBoxs[g].style.lineHeight = 0.1*maxHeightForWindow + "px"
+        TextBoxs[g].style.fontSize = 0.1*maxHeightForWindow + "px"
+      }
+
+      let TextBoxImages = document.getElementsByClassName("BoxImage")
+
+
+      for (var q = 0; q < TextBoxImages.length; ++q) {
+        console.log(g)
+        TextBoxImages[q].style.width = 0.25*maxHeightForWindow + "px"
+        TextBoxImages[q].style.height = 0.25*maxHeightForWindow + "px"
+      }
+    }
+
+    window.onresize = OnResized;
+
+    OnResized()
+  </script>
+</html>

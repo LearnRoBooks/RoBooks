@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap');
+
+* {
+    background-color: #ffd7b5;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    height: 50px;
+    z-index: 100;
+}
+
+.MainNavigation {
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff;
+    position: sticky;
+}
+
+.logo {
+    background-color: #ffffff;
+    height: 60px;
+}
+
+.MainImage {
+    background-color: #ffffff;
+    margin-top: 12.5px;
+    margin-left: 10px;
+    height: 40px;
+    width: 40px;
+}
+
+.navItem {
+    background-color: #ffffff;
+    display: inline-block;
+    margin-left: 5%;
+    margin-top: 12.5px;
+    text-align: center;
+    line-height: 35px;
+    font-size: 20px;
+    font-family: 'Archivo Narrow', sans-serif;
+    text-decoration: none;
+    color: #000000;
+}
+
+.navItem:hover {
+    transition: border-bottom 0.1s;
+    border-bottom: 3px solid black;
+}
+
+.MainContainer {
+    width: 100%;
+    margin-top: 60px;
+    height: 500px;
+}
+
+.custom-shape-divider-top-1638130578 {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    background-color: #ffb38a;
+}
+
+.custom-shape-divider-top-1638130578 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 206px;
+    background-color: #ffb38a;
+}
+
+.custom-shape-divider-top-1638130578 .shape-fill {
+    fill: #ffd7b5;
+}
+
+.RoBooksLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Title {
+    width: 100%;
+    height: 200px;
+    font-family: 'Archivo Narrow', sans-serif;
+    line-height: 100px;
+    font-size: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; 
+}
+
+.CurvedBoxContainer {
+    width: 28%;
+    background-color: #ffffff;
+    border-radius: 40px;
+    margin-left: 4%;
+    height: 300px;
+    display: inline-block;
+    margin-top: 100px;
+    position: relative;
+    text-decoration: none;
+}
+
+.CurvedBoxContainer:hover {
+    transition: box-shadow 0.1s;
+    box-shadow: 0px 5px 5px whitesmoke;
+    cursor: pointer;
+}
+
+.TextBox {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    font-family: 'Archivo Narrow', sans-serif;
+    background-color: transparent;
+    height: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40%;
+    text-decoration: none;
+    color: #000000;
+}
+
+.LessonHolder {
+    width: 20%;
+    height: 100%;
+    background-color: #ffffff;
+    padding: 0; 
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.MainLessonItem {
+    width: 100%;
+    background-color: #ffffff;
+    display: block;
+    color: #000000;
+    text-align: center;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.MainLessonItem:hover {
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.SubLessonItem {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    background-color: whitesmoke;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Archivo Narrow', sans-serif;
+    color: #000000;
+}
+
+.SubLessonItem:hover {
+    cursor: pointer;
+}
+
+.LessonContainer {
+    width: 80%;
+    height: 100%;
+    background-color: #ffffff;
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+.SectionTitle {
+    margin-left: 5%;
+    width: 80%;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: underline;
+    background-color: transparent;
+    margin-top: 10px;
+}
+
+.SectionParagraph {
+    margin-left: 10%;
+    width: 80%;
+    font-size: 20px;
+    background-color: transparent;
+    margin-top: 10px;
+}
+
+.CodeSample {
+    background-color: rgb(38, 50, 56);;
+    width: 70%;
+    padding: 5% 5% 5%;
+    border-radius: 10px;
+    margin-left: 10%;
+    font-family: Monaco,Consolas,Lucida Console,monospace;
+    font-weight: bold;
+    color: rgb(238, 255, 255);
+}
+
+.purplekeyword {
+    font-weight: bold; 
+    background-color: transparent; 
+    color: rgb(199, 146, 234);
+    font-family: Monaco,Consolas,Lucida Console,monospace;
+}
+
+.comment {
+    background-color: transparent;
+    font-weight: normal;
+    color: rgb(195, 232, 141);
+}
+
+.operator {
+    color: rgb(137, 221, 255);
+    font-family: Monaco,Consolas,Lucida Console,monospace;
+    font-weight: bold; 
+    background-color: transparent; 
+}
+
+.number {
+    color: rgb(247, 140, 108);
+    font-family: Monaco,Consolas,Lucida Console,monospace;
+    font-weight: bold; 
+    background-color: transparent; 
+}
+
+.functionkeyword {
+    color: rgb(241, 72, 20);
+    font-family: Monaco,Consolas,Lucida Console,monospace;
+    font-weight: bold; 
+    background-color: transparent; 
+}
+
+.string {
+    color: #c3e88d;
+    font-family: Monaco,Consolas,Lucida Console,monospace;
+    font-weight: bold; 
+    background-color: transparent; 
+}
+
+.NextChapter {
+    background-color: transparent;
+    text-decoration: underline;
+    color: blue;
+    font-size: 30px;
+    width: 80%;
+    margin-left: 5%;
+}
+
