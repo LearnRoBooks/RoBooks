@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>RoBooks</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" href="../../images/LuaLogo.png">
+
+
+  </head>
+  <body>
+    <header>
+      <a class = "logo" href=""><img class = "MainImage" src="../../images/LuaLogo.png" alt = "logo"></a>
+      <nav class ="MainNavigation">
+        <a class="navItem" href="../../../index.html"><b style="background-color: #ffffff;">Home</b></a>
+        <a class="navItem" href="../../pages/lessons.html"><b style="background-color: #ffffff;">Lessons</b></a>
+        <a class="navItem" href="../../pages/practice.html"><b style="background-color: #ffffff;">Practice</b></a>
+      </nav>
+    </header>
+
+    <div class="MainContainer" id="MainContainer" style="background-color: #ffffff; width: 80%; margin: auto; margin-top: 100px; height: 2000px; overflow: hidden; position: relative;">
+      <ol class="LessonHolder">
+        <a class="MainLessonItem" href="../lessons.html">
+          <b style="background-color: transparent;">Chapter 1:</b> Variables, values and types
+        </a>
+
+        <a class="MainLessonItem" href="../lessons/chapter2.html">
+          <b style="background-color: transparent;">Chapter 2:</b> Properties and Instances
+        </a>
+
+        <a class="MainLessonItem" href="../lessons/chapter3.html" style="background-color: whitesmoke;">
+          <b style="background-color: transparent;">Chapter 3:</b> Conditionals and If Statements
+        </a>
+
+        <a href="#3.1" class="SubLessonItem">
+          3.1: Conditionals
+        </a>
+
+        <a href="#3.2" class="SubLessonItem">
+          3.2: If Statements
+        </a>
+
+        <a href="#3.3" class="SubLessonItem">
+          3.3: Using If Statements
+        </a>
+      </ol>
+
+      <div class="LessonContainer">
+        <div class="SectionTitle" id="3.1">3.1: Conditionals</div>
+
+        <p class="SectionParagraph">
+          A Conditional is defined by Oxford Languages as: subject to one or more conditions or requirements being met; made or granted on certain terms.
+        </p>  
+
+        <p class="SectionParagraph">
+          In programming, a conditional means the same thing, where a certain condition needs to be met for something to happen.
+        </p>
+
+        <p class="SectionParagraph">
+          Conditionals can take the form of many different things, but the most prominent are If Statements which will be further discussed in the next section.
+        </p>
+
+
+        <div class="SectionTitle" id="3.2">3.2: If Statements</div>
+
+        <p class="SectionParagraph">
+          If Statements are a type of conditional, where if a certain criteria is met, something happens. An example of an if statement could be, if playerx has 500 coins, then playerx can buy a sword.
+        </p>
+
+        <p class="SectionParagraph">
+          If statements are particularly powerful in scenarios explained above. They allow for logic to take place in programming.
+        </p>
+
+        <p class="SectionParagraph">
+          LUAU makes If Statements incredibly simple, since they are written the same way they would be written in English.
+        </p>
+
+        <div class="SectionTitle" id="3.3">3.3: Using If Statements</div>
+
+        <p class="SectionParagraph">
+          Before understanding how if statements are written in LUAU, we first must understand that each section of code must involve an end to indicate the end of that section. An end must also be included with if statements.
+        </p>
+
+        <div class="CodeSample">
+          <b class ="purplekeyword">if</b> CONDITION <b class ="purplekeyword">then</b>
+          <br>
+          <b class="comment" style="padding-left: 15px;"> --Do Something</b>
+          <br>
+          <b class ="purplekeyword">end</b>
+        </div>
+
+        <p class="SectionParagraph">
+          We need an end so the computer can understand where our if statement ends. Otherwise, the computer would not be able to differentiate.
+        </p>
+
+        <p class="SectionParagraph">
+          We can use if statements with any comparison based value which we have discovered in Chapter 1. This includes, but not limited to, booleans, numbers, and strings.
+        </p>
+
+        <div class="CodeSample">
+          <b class ="purplekeyword">if</b> <b class="number">10</b> <b class="operator">></b> <b class="number">7</b> <b class ="purplekeyword">then</b> <b class="comment"> --This will "Do Something" if 10 is greater than 7, which it is.</b>
+          <br>
+          <b class="comment" style="padding-left: 15px;"> --Do Something</b>
+          <br>
+          <b class ="purplekeyword">end</b>
+          <br>
+          <br>
+          <b class ="purplekeyword">if</b> boolean <b class="operator">==</b> <b class="purplekeyword">true</b> <b class ="purplekeyword">then</b> <b class="comment"> --This will "Do Something" if the boolean value "boolean" is true.</b>
+          <br>
+          <b class="comment" style="padding-left: 15px;"> --Do Something</b>
+          <br>
+          <b class ="purplekeyword">end</b>
+          <br>
+          <br>
+          <b class ="purplekeyword">if</b> name <b class="operator">==</b> <b class="string">"Bob"</b> <b class ="purplekeyword">then</b> <b class="comment"> --This will "Do Something" if the variable "name" is "Bob"</b>
+          <br>
+          <b class="comment" style="padding-left: 15px;"> --Do Something</b>
+          <br>
+          <b class ="purplekeyword">end</b>
+        </div>
+
+        <p class="SectionParagraph">
+          As we can see above, there are many different ways we can use If Statements which make them very useful.
+        </p>
+
+        <a class="NextChapter" href="../lessons/chapter4.html">Coming Soon</a>
+      </div>
+    </div>
+
+
+    <script>
+      function OnResized() {
+        let MainContainer = document.getElementById("MainContainer")
+
+        if (MainContainer.clientWidth < 1308) {
+          MainContainer.style.height = ((Math.abs(1308 - MainContainer.clientWidth)/868 + 1)*2500) + "px"
+        } else {
+          MainContainer.style.height = 2500 + "px"
+        }
+      }
+
+      window.onresize = OnResized;
+
+      OnResized()
+    </script>
+  </body>
+</html> 
