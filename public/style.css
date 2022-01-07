@@ -231,6 +231,7 @@ header {
     background-color: transparent;
     font-weight: normal;
     color: rgb(195, 232, 141);
+    font-family: Monaco,Consolas,Lucida Console,monospace;
 }
 
 .operator {
