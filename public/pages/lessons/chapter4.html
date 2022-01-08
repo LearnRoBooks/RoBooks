@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>RoBooks</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" href="../../images/LuaLogo.png">
+
+
+  </head>
+  <body>
+    <header>
+      <a class = "logo" href=""><img class = "MainImage" src="../../images/LuaLogo.png" alt = "logo"></a>
+      <nav class ="MainNavigation">
+        <a class="navItem" href="../../../index.html"><b style="background-color: #ffffff;">Home</b></a>
+        <a class="navItem" href="../../pages/lessons.html"><b style="background-color: #ffffff;">Lessons</b></a>
+        <a class="navItem" href="../../pages/practice.html"><b style="background-color: #ffffff;">Practice</b></a>
+      </nav>
+    </header>
+
+    <div class="MainContainer" id="MainContainer" style="background-color: #ffffff; width: 80%; margin: auto; margin-top: 100px; height: 2000px; overflow: hidden; position: relative;">
+      <ol class="LessonHolder">
+        <a class="MainLessonItem" href="../lessons.html">
+          <b style="background-color: transparent;">Chapter 1:</b> Variables, values and types
+        </a>
+
+        <a class="MainLessonItem" href="../lessons/chapter2.html">
+          <b style="background-color: transparent;">Chapter 2:</b> Properties and Instances
+        </a>
+
+        <a class="MainLessonItem" href="../lessons/chapter3.html">
+          <b style="background-color: transparent;">Chapter 3:</b> Conditionals and If Statements
+        </a>
+
+        <a class="MainLessonItem" href="../lessons/chapter4.html" style="background-color: whitesmoke;">
+          <b style="background-color: transparent;">Chapter 4:</b>  Functions and Blocks
+        </a>
+
+        <a href="#4.1" class="SubLessonItem">
+          4.1: Blocks
+        </a>
+
+        <a href="#4.2" class="SubLessonItem">
+          4.2: Functions
+        </a>
+
+        <a href="#4.3" class="SubLessonItem">
+          4.3: Calling Functions
+        </a>
+
+        <a href="#4.4" class="SubLessonItem">
+          4.4: Parameters
+        </a>
+
+        <a href="#4.5" class="SubLessonItem">
+          4.5: Return
+        </a>
+
+    
+      </ol>
+
+      <div class="LessonContainer">
+        <div class="SectionTitle" id="4.1">4.1: Blocks</div>
+
+        <p class="SectionParagraph">
+          When we refer to a block in LUAU, what are we referring to? As defined by lua.org, A block is the body of a control structure, the body of a function, or a chunk (the file or string with the code where the variable is declared).
+        </p>  
+
+        <p class="SectionParagraph">
+          But what does this mean?
+        </p>  
+
+        <p class="SectionParagraph">
+          Remember in the pervious chapter, where we discussed if statements and said that if statements end with the keyword <b style="background-color: transparent;">end</b>?
+        </p>  
+
+        <p class="SectionParagraph">
+          That if statement was actually a block itself. A block's end is declared by using the keyword <b style="background-color: transparent;">end</b>.
+        </p> 
+
+        <p class="SectionParagraph">
+          Each block has a scope, which essentially is just the area where a variable is recognized. local variables can only be accessed if they are created before or inside a block.
+        </p> 
+        
+        <p class="SectionParagraph">
+          Let's give an example. In the if statement example, lets create a variable above the if statement.
+        </p>
+
+        
+
+        <div class="CodeSample">
+          <b class ="purplekeyword">local</b> num <b class="operator">=</b> <b class="number">10</b>
+          <br>
+          <br>
+          <b class ="purplekeyword">if</b> CONDITION <b class ="purplekeyword">then</b>
+          <br>
+          <b class="purplekeyword" style="padding-left: 15px;">print</b>(num) <b class="comment">--This will print the variable num, since the variable num is being accessed within its scope.</b>
+          <br>
+          <b class ="purplekeyword">end</b>
+          <br>
+          <br>
+          <b class="purplekeyword">print</b>(num) <b class="comment">--This will print the variable num, since the variable num is being accessed within its scope.</b>
+        </div>
+
+        <p class="SectionParagraph">
+          Both of the print statements above will not return an error since the variable is being accessed within its scope.
+        </p>
+
+        <p class="SectionParagraph">
+          Let's take a look at a different example.
+        </p>
+
+        <div class="CodeSample">
+          <b class ="purplekeyword">if</b> CONDITION <b class ="purplekeyword">then</b>
+          <br>
+          <b class ="purplekeyword" style="padding-left: 15px;">local</b> num <b class="operator">=</b> <b class="number">10</b>
+          <br>
+          <b class="purplekeyword" style="padding-left: 15px;">print</b>(num) <b class="comment">--This will print the variable num, since the variable num is being accessed within its scope.</b>
+          <br>
+          <b class ="purplekeyword">end</b>
+          <br>
+          <br>
+          <b class="purplekeyword">print</b>(num) <b class="comment">--This will give an error since the variable num is being accessed outside of its scope.</b>
+        </div>
+
+        <p class="SectionParagraph">
+          In the example above, only the first print statement will not error, while the second print statement will give an error since the local variable num is accessed outside of its scope.
+        </p>
+
+        <p class="SectionParagraph">
+          When using local variables, always make sure to keep in mind scope.
+        </p>
+
+        <div class="SectionTitle" id="4.2">4.2: Functions</div>
+
+        <p class="SectionParagraph">
+          A function is a set of procedures that carries out the code we provide it.
+        </p>
+
+        <p class="SectionParagraph">
+          Functions are useful since they simplify our code if we need to use the same set of instructions multiple times. Instead of writing the same code multiple times, we can just call our function.
+        </p>
+
+        <p class="SectionParagraph">
+          Let's say we needed a function to display multiple print messages. We can either declare our function as a local function or a global function. To declare a local function we simply write,
+        </p>
+
+        <div class="CodeSample">
+          <b class ="purplekeyword">local function</b> FunctionName ()
+          <br>
+          <b class="comment" style="padding-left: 15px;">--Instructions Here</b>
+          <br>
+          <b class ="purplekeyword">end</b>
+        </div>
+
+        <p class="SectionParagraph">
+          ,where "FunctionName" is the name we want to assign our function with.
+        </p>
+
+        <p class="SectionParagraph">
+          Notice that our functions end with the keyword "end". This means that functions are also a type of block and scope should be considered.
+        </p>
+
+        <p class="SectionParagraph">
+          On the other hand, if we wanted to declare a global function, we simply write,
+        </p>
+
+        <div class="CodeSample">
+          <b class ="purplekeyword">function</b> FunctionName ()
+          <br>
+          <b class="comment" style="padding-left: 15px;">--Instructions Here</b>
+          <br>
+          <b class ="purplekeyword">end</b>
+        </div>
+
+        <p class="SectionParagraph">
+          ,where "FunctionName" is the name we want to assign our function with.
+        </p>
+
+        <div class="SectionTitle" id="4.3">4.3: Calling Functions</div>
+
+        <p class="SectionParagraph">
+          Now that you know how to declare a function, how do we use it? To use a function (Also know as calling a function) we simply refer to the functions name with parentheses. If our functions name is "SuperFunction" the we call it by simply writing,
+          <br>
+          <b style="background-color: transparent;">SuperFunction()</b>
+        </p>
+
+        <p class="SectionParagraph">
+          Let's give an example of this. We are going to create a function called "PrintAllMessages" which will print a series of messages. We need to first declare our function and then call it.
+        </p>
+
+        <div class="CodeSample">
+          <b class ="purplekeyword">local function</b> PrintAllMessages ()
+          <br>
+          <b class="purplekeyword" style="padding-left: 15px;">Print</b>(<b class="string">"Hello"</b>)
+          <br>
+          <b class="purplekeyword" style="padding-left: 15px;">Print</b>(<b class="string">"My Name is"</b>)
+          <br>
+          <b class="purplekeyword" style="padding-left: 15px;">Print</b>(<b class="string">"Bob..."</b>)
+          <br>
+          <b class ="purplekeyword">end</b>
+          <br>
+          <br>
+          <b class="functionkeyword">PrintAllMessages</b>()
+        </div>
+
+        <p class="SectionParagraph">
+          This function will print the 3 messages we wrote when called. Instead of writing the 3 print statements every time we want to print the messages, we can just call the PrintAllMessages() function that we created.
+        </p>
+
+        <div class="SectionTitle" id="4.4">4.4: Parameters</div>
+
+        <p class="SectionParagraph">
+          Functions may seem useful already, but what if we wanted to use the same instructions but with some minor changes? In the example above, what if we wanted to print a different series of messages each time?
+        </p>
+
+        <p class="SectionParagraph">
+          This is where parameters come in. A parameter is just a variable or value that we pass to a function. What does this mean? When we say we pass a value to a function, we simply send the value to that function.
+        </p>
+
+        <p class="SectionParagraph">
+          Let's say we wanted to create a function that prints anything we give it 3 times,
+        </p>
+
+        <div class="CodeSample">
+          <b class ="purplekeyword">local function</b> PrintAllMessages (Parameter)
+          <br>
+          <b class="purplekeyword" style="padding-left: 15px;">Print</b>(Parameter)
+          <br>
+          <b class="purplekeyword" style="padding-left: 15px;">Print</b>(Parameter)
+          <br>
+          <b class="purplekeyword" style="padding-left: 15px;">Print</b>(Parameter)
+          <br>
+          <b class ="purplekeyword">end</b>
+          <br>
+          <br>
+          <b class="functionkeyword">PrintAllMessages</b>(<b class="string">"Our First Message"</b>) <b class ="comment">-- This will print "Our First Message" 3 times</b>
+          <br>
+          <b class="functionkeyword">PrintAllMessages</b>(<b class="string">"Our Second Message"</b>) <b class ="comment">-- This will print "Our Second Message" 3 times</b>
+        </div>
+
+        <p class="SectionParagraph">
+          We can pass as many parameters as we want and each parameter can either be a variable or a value. Additionally, each Parameter we put inside the function declaration can be any name we decide. 
+        </p>
+
+        <div class="SectionTitle" id="4.5">4.5: Return</div>
+
+        <p class="SectionParagraph">
+          Another useful thing we can do with functions is return a value using the keyword <b style="background-color: transparent;">return</b>
+        </p>
+
+        <p class="SectionParagraph">
+          You may want a function that calculates a value for you which will then be stored in a variable for later use. To do this, we just need to use "return". For example, if we wanted to create a function that calculates the square of a number and returns that value, we can write,
+        </p>
+
+        <div class="CodeSample">
+          <b class ="purplekeyword">local function</b> CalculateSquare (numValue)
+          <br>
+          <b class="purplekeyword" style="padding-left: 15px;">return</b> numValue*numValue <b class ="comment">-- This will return the square of numValue</b>
+          <br>
+          <b class ="purplekeyword">end</b>
+          <br>
+          <br>
+          <b class="purplekeyword">local</b> squareOfTwo = <b class="functionkeyword">CalculateSquare</b>(<b class="number">2</b>) <b class ="comment">-- This will store the value 4 which is the square of 2</b>
+        </div>
+
+        <p class="SectionParagraph">
+          "return" is very useful and simplifies code drastically. 
+        </p>
+
+        <p class="SectionParagraph">
+          <b style="background-color: transparent;">Things to Note:</b>
+          <br>
+          <b style="background-color: transparent; font-weight: normal; padding-left: 15px;">* Return will finish a function, meaning that code written after a return is done will not run.</b>
+          <br>
+          <b style="background-color: transparent; font-weight: normal; padding-left: 15px;">* Return can return any variable or value</b>
+          <br>
+          <b style="background-color: transparent; font-weight: normal; padding-left: 15px;">* Return can return nothing which is useful to stop a function</b>
+        </p>
+
+        <a class="NextChapter" href="../lessons/chapter4.html">Coming Soon</a>
+      </div>
+    </div>
+
+
+    <script>
+      function OnResized() {
+        let MainContainer = document.getElementById("MainContainer")
+
+        if (MainContainer.clientWidth < 1308) {
+          MainContainer.style.height = ((Math.abs(1308 - MainContainer.clientWidth)/868 + 1)*4000) + "px"
+        } else {
+          MainContainer.style.height = 4000 + "px"
+        }
+      }
+
+      window.onresize = OnResized;
+
+      OnResized()
+    </script>
+  </body>
+</html> 
