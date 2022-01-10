@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>RoBooks</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" href="../../images/LuaLogo.png">
+
+
+  </head>
+  <body>
+    <header>
+      <a class = "logo" href=""><img class = "MainImage" src="../../images/LuaLogo.png" alt = "logo"></a>
+      <nav class ="MainNavigation">
+        <a class="navItem" href="../../../index.html"><b style="background-color: #ffffff;">Home</b></a>
+        <a class="navItem" href="../../pages/lessons.html"><b style="background-color: #ffffff;">Lessons</b></a>
+        <a class="navItem" href="../../pages/practice.html"><b style="background-color: #ffffff;">Practice</b></a>
+      </nav>
+    </header>
+
+    <div class="MainContainer" id="MainContainer" style="background-color: #ffffff; width: 80%; margin: auto; margin-top: 100px; height: 2000px; overflow: hidden; position: relative;">
+      <ol class="LessonHolder">
+        <a class="MainLessonItem" href="../lessons.html">
+          <b style="background-color: transparent;">Chapter 1:</b> Variables, values and types
+        </a>
+
+        <a class="MainLessonItem" href="../lessons/chapter2.html">
+          <b style="background-color: transparent;">Chapter 2:</b> Properties and Instances
+        </a>
+
+        <a class="MainLessonItem" href="../lessons/chapter3.html">
+          <b style="background-color: transparent;">Chapter 3:</b> Conditionals and If Statements
+        </a>
+
+        <a class="MainLessonItem" href="../lessons/chapter4.html">
+          <b style="background-color: transparent;">Chapter 4:</b>  Functions and Blocks
+        </a>
+
+        <a class="MainLessonItem" href="../lessons/chapter5.html" style="background-color: whitesmoke;">
+          <b style="background-color: transparent;">Chapter 5:</b>  Event Listeners
+        </a>
+
+        <a href="#5.1" class="SubLessonItem">
+          5.1: Events
+        </a>
+
+        <a href="#5.2" class="SubLessonItem">
+          5.2: Connect and Disconnect
+        </a>
+
+        <a href="#5.3" class="SubLessonItem">
+          5.3: 
+        </a>
+
+    
+      </ol>
+
+      <div class="LessonContainer">
+        <div class="SectionTitle" id="x">SectionTitle</div>
+
+        <p class="SectionParagraph">
+          Paragraph
+        </p>  
+
+        
+
+        <div class="CodeSample">
+          <b class ="purplekeyword">if</b> CONDITION <b class ="purplekeyword">then</b>
+          <br>
+          <b class="comment" style="padding-left: 15px;"> --Do Something</b>
+          <br>
+          <b class ="purplekeyword">end</b>
+        </div>
+
+        <a class="NextChapter" href="../lessons/chapter4.html">Coming Soon</a>
+      </div>
+    </div>
+
+
+    <script>
+      function OnResized() {
+        let MainContainer = document.getElementById("MainContainer")
+
+        if (MainContainer.clientWidth < 1308) {
+          MainContainer.style.height = ((Math.abs(1308 - MainContainer.clientWidth)/868 + 1)*2500) + "px"
+        } else {
+          MainContainer.style.height = 2500 + "px"
+        }
+      }
+
+      window.onresize = OnResized;
+
+      OnResized()
+    </script>
+  </body>
+</html> 
