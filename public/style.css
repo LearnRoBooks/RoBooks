@@ -45,7 +45,7 @@ header {
 }
 
 .navItem {
-    background-color: #ffffff;
+    background-color: transparent;
     display: inline-block;
     margin-left: 5%;
     margin-top: 12.5px;
@@ -59,7 +59,6 @@ header {
 
 .navItem:hover {
     transition: border-bottom 0.1s;
-    border-bottom: 3px solid black;
 }
 
 .MainContainer {
@@ -75,7 +74,7 @@ header {
     background-color: #ffb38a;
 }
 
-.custom-shape-divider-top-1638130578 svg {
+.BottomShaped {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
@@ -118,7 +117,7 @@ header {
 
 .CurvedBoxContainer:hover {
     transition: box-shadow 0.1s;
-    box-shadow: 0px 5px 5px whitesmoke;
+    box-shadow: 0px 5px 5px gray;
     cursor: pointer;
 }
 
@@ -158,8 +157,23 @@ header {
     padding-left: 5%;
 }
 
-.MainLessonItem:hover {
+.MainLessonItem1 {
+    width: 100%;
     background-color: whitesmoke;
+    display: block;
+    color: #000000;
+    text-align: left;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    padding-left: 5%;
+}
+
+.MainLessonItem:hover {
+    cursor: pointer;
+}
+
+.MainLessonItem1:hover {
     cursor: pointer;
 }
 
@@ -269,4 +283,49 @@ header {
     font-size: 30px;
     width: 80%;
     margin-left: 5%;
+}
+
+.DarkMode-0 {
+    background-color: #000000 !important;
+    color: #dcddde !important;
+}
+
+.DarkMode-1 {
+    background-color: #191919;
+    color: #dcddde;
+}
+
+.DarkMode-2 {
+    background-color: #333333;
+    color: #dcddde;
+}
+
+.DarkMode-3 {
+    background-color: #4d4d4d;
+    color: #dcddde;
+}
+
+.DarkModeBtn {
+    display: inline-block;
+    position: absolute;
+    right: 5%;
+    top: 15px;
+    width: 30px;
+    height: 30px;
+    background-color: gray;
+    border-radius: 50%;
+}
+
+.DarkModeBtn div {
+    position: relative;
+    width: 22.5px;
+    height: 22.5px;
+    margin-left: 3.75px;
+    margin-top: 3.75px;
+    background-color: aliceblue;
+    border-radius: 50%;
+}
+
+.DarkModeBtn:hover {
+    cursor: pointer;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class ="MainHtml">
   <head>
     <meta charset="utf-8">
     <title>RoBooks</title>
@@ -8,13 +8,16 @@
 
 
   </head>
-  <body>
+  <body class = "MainBody">
     <header>
       <a class = "logo" href=""><img class = "MainImage" src="../../images/LuaLogo.png" alt = "logo"></a>
       <nav class ="MainNavigation">
-        <a class="navItem" href="../../../index.html"><b style="background-color: #ffffff;">Home</b></a>
-        <a class="navItem" href="../../pages/lessons.html"><b style="background-color: #ffffff;">Lessons</b></a>
-        <a class="navItem" href="../../pages/practice.html"><b style="background-color: #ffffff;">Practice</b></a>
+        <a class="navItem" href="../../../index.html"><b style="background-color: transparent;">Home</b></a>
+        <a class="navItem" href="../../pages/lessons.html"><b style="background-color: transparent;">Lessons</b></a>
+        <a class="navItem" href="../../pages/practice.html"><b style="background-color: transparent;">Practice</b></a>
+        <div class="DarkModeBtn" id="DarkModeBtn">
+          <div id="DarkModeBtnColor"></div>
+        </div>
       </nav>
     </header>
 
@@ -28,7 +31,7 @@
           <b style="background-color: transparent;">Chapter 2:</b> Properties and Instances
         </a>
 
-        <a class="MainLessonItem" href="../lessons/chapter3.html" style="background-color: whitesmoke;">
+        <a class="MainLessonItem1" href="../lessons/chapter3.html" style="background-color: whitesmoke;">
           <b style="background-color: transparent;">Chapter 3:</b> Conditionals and If Statements
         </a>
 
@@ -54,6 +57,7 @@
 
         
       </ol>
+
 
       <div class="LessonContainer">
         <div class="SectionTitle" id="3.1">3.1: Conditionals</div>
@@ -139,19 +143,133 @@
 
 
     <script>
+
+      let HoverColor = "#000000"
+      let HoverBackgroundColor = "whitesmoke"
+
       function OnResized() {
         let MainContainer = document.getElementById("MainContainer")
 
         if (MainContainer.clientWidth < 1308) {
-          MainContainer.style.height = ((Math.abs(1308 - MainContainer.clientWidth)/868 + 1)*2500) + "px"
+          MainContainer.style.height = ((Math.abs(1308 - MainContainer.clientWidth)/868 + 1)*2000) + "px"
         } else {
-          MainContainer.style.height = 2500 + "px"
+          MainContainer.style.height = 2000 + "px"
         }
       }
+
+      function ToggleDarkMode() {
+      const zeroItems = ["MainNavigation", "MainImage", "navItem", "logo"]
+      const oneItems = ["MainContainer", "RoBooksLogo","MainBody", "Title","MainHtml","BoldTitle", "shape-fill"]
+      const twoItems = ["BottomShaped", "LessonContainer", "LessonHolder", "MainLessonItem"]
+      const threeItems = ["TextBox", "CurvedBoxContainer", "SubLessonItem"]
+
+      if (document.getElementsByClassName("MainNavigation")[0].classList.contains("DarkMode-0")) {
+        localStorage.setItem('dark', false);
+        document.getElementById("DarkModeBtnColor").style.backgroundColor = "aliceblue"
+        document.getElementsByClassName("NextChapter")[0].style.color = "blue"
+        document.getElementsByClassName("MainLessonItem1")[0].style.backgroundColor = "whitesmoke"
+        document.getElementsByClassName("MainLessonItem1")[0].style.color = "#000000"
+        HoverColor = "#000000"
+        HoverBackgroundColor = "whitesmoke"
+
+        let MainLessonItems = document.getElementsByClassName("MainLessonItem")
+
+        for (k = 0; k < MainLessonItems.length; ++k) {
+          MainLessonItems[k].style.backgroundColor = "#ffffff"
+        }
+      } else {
+        localStorage.setItem('dark', true);
+        document.getElementById("DarkModeBtnColor").style.backgroundColor = "#191919"
+        document.getElementsByClassName("NextChapter")[0].style.color = "#dcddde"
+        document.getElementsByClassName("MainLessonItem1")[0].style.backgroundColor = "#4d4d4d"
+        document.getElementsByClassName("MainLessonItem1")[0].style.color = "#dcddde"
+        HoverColor = "#dcddde"
+        HoverBackgroundColor = "#4d4d4d"
+
+        let MainLessonItems = document.getElementsByClassName("MainLessonItem")
+
+        for (k = 0; k < MainLessonItems.length; ++k) {
+          MainLessonItems[k].style.backgroundColor = "#333333"
+        }
+      }
+
+      for (i = 0; i < zeroItems.length; ++i) {
+        let items = document.getElementsByClassName(zeroItems[i])
+
+        for (g = 0; g < items.length; ++g) {
+          items[g].classList.toggle("DarkMode-0")
+        }
+      }
+
+      for (r = 0; r < oneItems.length; ++r) {
+        let items = document.getElementsByClassName(oneItems[r])
+
+        for (q = 0; q < items.length; ++q) {
+          items[q].classList.toggle("DarkMode-1")
+        }
+      }
+
+      for (n = 0; n < twoItems.length; ++n) {
+        let items = document.getElementsByClassName(twoItems[n])
+
+        for (h = 0; h < items.length; ++h) {
+          items[h].classList.toggle("DarkMode-2")
+        }
+      }
+
+      for (n = 0; n < threeItems.length; ++n) {
+        let items = document.getElementsByClassName(threeItems[n])
+
+        for (h = 0; h < items.length; ++h) {
+          items[h].classList.toggle("DarkMode-3")
+        }
+      }
+    }
+
+    if(!localStorage.getItem('dark')) {
+      localStorage.setItem('dark', false);
+    } else {
+      if (localStorage.getItem('dark') == "true") {
+        ToggleDarkMode()
+      }
+    }
+
+
+    let navItems = document.getElementsByClassName("navItem")
+
+    for (let z = 0; z < navItems.length; ++z) {
+      navItems[z].addEventListener("mouseenter", function(){
+        navItems[z].style.borderBottom = "3px solid " + HoverColor;
+      })
+
+      navItems[z].addEventListener("mouseleave", function(){
+        navItems[z].style.borderBottom = "";
+      })
+    }
+
+    let MainLessonItems = document.getElementsByClassName("MainLessonItem")
+
+    for (let z = 0; z < MainLessonItems.length; ++z) {
+      MainLessonItems[z].addEventListener("mouseenter", function(){
+        MainLessonItems[z].style.backgroundColor = HoverBackgroundColor
+      })
+
+      MainLessonItems[z].addEventListener("mouseleave", function(){
+        if (HoverBackgroundColor == "whitesmoke") {
+          MainLessonItems[z].style.backgroundColor = "#ffffff"
+        } else {
+          MainLessonItems[z].style.backgroundColor = "#333333"
+        }
+      })
+    }
+
+    document.getElementById("DarkModeBtn").addEventListener("click", function(){
+      ToggleDarkMode()
+    })
 
       window.onresize = OnResized;
 
       OnResized()
     </script>
   </body>
-</html> 
+</html>

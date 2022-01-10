@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class ="MainHtml">
   <head>
     <meta charset="utf-8">
     <title>RoBooks</title>
@@ -8,13 +8,16 @@
 
 
   </head>
-  <body>
+  <body class = "MainBody">
     <header>
       <a class = "logo" href=""><img class = "MainImage" src="../../images/LuaLogo.png" alt = "logo"></a>
       <nav class ="MainNavigation">
-        <a class="navItem" href="../../../index.html"><b style="background-color: #ffffff;">Home</b></a>
-        <a class="navItem" href="../../pages/lessons.html"><b style="background-color: #ffffff;">Lessons</b></a>
-        <a class="navItem" href="../../pages/practice.html"><b style="background-color: #ffffff;">Practice</b></a>
+        <a class="navItem" href="../../../index.html"><b style="background-color: transparent;">Home</b></a>
+        <a class="navItem" href="../../pages/lessons.html"><b style="background-color: transparent;">Lessons</b></a>
+        <a class="navItem" href="../../pages/practice.html"><b style="background-color: transparent;">Practice</b></a>
+        <div class="DarkModeBtn" id="DarkModeBtn">
+          <div id="DarkModeBtnColor"></div>
+        </div>
       </nav>
     </header>
 
@@ -36,7 +39,7 @@
           <b style="background-color: transparent;">Chapter 4:</b>  Functions and Blocks
         </a>
 
-        <a class="MainLessonItem" href="../lessons/chapter5.html" style="background-color: whitesmoke;">
+        <a class="MainLessonItem1" href="../lessons/chapter5.html" style="background-color: whitesmoke;">
           <b style="background-color: transparent;">Chapter 5:</b>  Event Listeners
         </a>
 
@@ -45,39 +48,50 @@
         </a>
 
         <a href="#5.2" class="SubLessonItem">
-          5.2: Connect and Disconnect
+          5.2: Waiting for an Event
         </a>
 
         <a href="#5.3" class="SubLessonItem">
-          5.3: 
+          5.3: Connect and Disconnect
         </a>
 
-    
+        
       </ol>
 
+
       <div class="LessonContainer">
-        <div class="SectionTitle" id="x">SectionTitle</div>
+        <div class="SectionTitle" id="5.1">5.1: Events</div>
 
         <p class="SectionParagraph">
-          Paragraph
-        </p>  
+          From Chapter 2, we know that Instances have properties. However, Instances also have <b style="background-color: transparent;">events</b>.
+        </p>
 
-        
+        <p class="SectionParagraph">
+          Events in programming, are similar to the general definition of Events. When something happens, an event sends out a signal, such as a player clicking their mouse. All Roblox games utilize these events to detect when to do something.
+        </p>
 
-        <div class="CodeSample">
-          <b class ="purplekeyword">if</b> CONDITION <b class ="purplekeyword">then</b>
-          <br>
-          <b class="comment" style="padding-left: 15px;"> --Do Something</b>
-          <br>
-          <b class ="purplekeyword">end</b>
-        </div>
+        <div class="SectionTitle" id="5.1">5.2: Waiting for an Event</div>
 
-        <a class="NextChapter" href="../lessons/chapter4.html">Coming Soon</a>
+        <p class="SectionParagraph">
+          With events, we can ask our code to wait for an event to happen. For example, we can ask our code to wait for a player to click their mouse before doing something. To do this, we utilize the :Wait() function which yields our code until a specific event happens.
+        </p> 
+
+        <p class="SectionParagraph">
+          To be continued...
+        </p> 
+
+      
+
+        <a class="NextChapter" href="../lessons/chapter5.html">Coming Soon</a>
       </div>
     </div>
 
 
     <script>
+
+      let HoverColor = "#000000"
+      let HoverBackgroundColor = "whitesmoke"
+
       function OnResized() {
         let MainContainer = document.getElementById("MainContainer")
 
@@ -88,9 +102,119 @@
         }
       }
 
+      function ToggleDarkMode() {
+      const zeroItems = ["MainNavigation", "MainImage", "navItem", "logo"]
+      const oneItems = ["MainContainer", "RoBooksLogo","MainBody", "Title","MainHtml","BoldTitle", "shape-fill"]
+      const twoItems = ["BottomShaped", "LessonContainer", "LessonHolder", "MainLessonItem"]
+      const threeItems = ["TextBox", "CurvedBoxContainer", "SubLessonItem"]
+
+      if (document.getElementsByClassName("MainNavigation")[0].classList.contains("DarkMode-0")) {
+        localStorage.setItem('dark', false);
+        document.getElementById("DarkModeBtnColor").style.backgroundColor = "aliceblue"
+        document.getElementsByClassName("NextChapter")[0].style.color = "blue"
+        document.getElementsByClassName("MainLessonItem1")[0].style.backgroundColor = "whitesmoke"
+        document.getElementsByClassName("MainLessonItem1")[0].style.color = "#000000"
+        HoverColor = "#000000"
+        HoverBackgroundColor = "whitesmoke"
+
+        let MainLessonItems = document.getElementsByClassName("MainLessonItem")
+
+        for (k = 0; k < MainLessonItems.length; ++k) {
+          MainLessonItems[k].style.backgroundColor = "#ffffff"
+        }
+      } else {
+        localStorage.setItem('dark', true);
+        document.getElementById("DarkModeBtnColor").style.backgroundColor = "#191919"
+        document.getElementsByClassName("NextChapter")[0].style.color = "#dcddde"
+        document.getElementsByClassName("MainLessonItem1")[0].style.backgroundColor = "#4d4d4d"
+        document.getElementsByClassName("MainLessonItem1")[0].style.color = "#dcddde"
+        HoverColor = "#dcddde"
+        HoverBackgroundColor = "#4d4d4d"
+
+        let MainLessonItems = document.getElementsByClassName("MainLessonItem")
+
+        for (k = 0; k < MainLessonItems.length; ++k) {
+          MainLessonItems[k].style.backgroundColor = "#333333"
+        }
+      }
+
+      for (i = 0; i < zeroItems.length; ++i) {
+        let items = document.getElementsByClassName(zeroItems[i])
+
+        for (g = 0; g < items.length; ++g) {
+          items[g].classList.toggle("DarkMode-0")
+        }
+      }
+
+      for (r = 0; r < oneItems.length; ++r) {
+        let items = document.getElementsByClassName(oneItems[r])
+
+        for (q = 0; q < items.length; ++q) {
+          items[q].classList.toggle("DarkMode-1")
+        }
+      }
+
+      for (n = 0; n < twoItems.length; ++n) {
+        let items = document.getElementsByClassName(twoItems[n])
+
+        for (h = 0; h < items.length; ++h) {
+          items[h].classList.toggle("DarkMode-2")
+        }
+      }
+
+      for (n = 0; n < threeItems.length; ++n) {
+        let items = document.getElementsByClassName(threeItems[n])
+
+        for (h = 0; h < items.length; ++h) {
+          items[h].classList.toggle("DarkMode-3")
+        }
+      }
+    }
+
+    if(!localStorage.getItem('dark')) {
+      localStorage.setItem('dark', false);
+    } else {
+      if (localStorage.getItem('dark') == "true") {
+        ToggleDarkMode()
+      }
+    }
+
+
+    let navItems = document.getElementsByClassName("navItem")
+
+    for (let z = 0; z < navItems.length; ++z) {
+      navItems[z].addEventListener("mouseenter", function(){
+        navItems[z].style.borderBottom = "3px solid " + HoverColor;
+      })
+
+      navItems[z].addEventListener("mouseleave", function(){
+        navItems[z].style.borderBottom = "";
+      })
+    }
+
+    let MainLessonItems = document.getElementsByClassName("MainLessonItem")
+
+    for (let z = 0; z < MainLessonItems.length; ++z) {
+      MainLessonItems[z].addEventListener("mouseenter", function(){
+        MainLessonItems[z].style.backgroundColor = HoverBackgroundColor
+      })
+
+      MainLessonItems[z].addEventListener("mouseleave", function(){
+        if (HoverBackgroundColor == "whitesmoke") {
+          MainLessonItems[z].style.backgroundColor = "#ffffff"
+        } else {
+          MainLessonItems[z].style.backgroundColor = "#333333"
+        }
+      })
+    }
+
+    document.getElementById("DarkModeBtn").addEventListener("click", function(){
+      ToggleDarkMode()
+    })
+
       window.onresize = OnResized;
 
       OnResized()
     </script>
   </body>
-</html> 
+</html>
