@@ -70,11 +70,61 @@
           Events in programming, are similar to the general definition of Events. When something happens, an event sends out a signal, such as a player clicking their mouse. All Roblox games utilize these events to detect when to do something.
         </p>
 
-        <div class="SectionTitle" id="5.1">5.2: Waiting for an Event</div>
+        <p class="SectionParagraph">
+          Events in programming, are similar to the general definition of Events. When something happens, an event sends out a signal, such as a player clicking their mouse. All Roblox games utilize these events to detect when to do something.
+        </p>
+
+        <div class="SectionTitle" id="5.2">5.2: Waiting for an Event</div>
 
         <p class="SectionParagraph">
           With events, we can ask our code to wait for an event to happen. For example, we can ask our code to wait for a player to click their mouse before doing something. To do this, we utilize the :Wait() function which yields our code until a specific event happens.
         </p> 
+
+        <p class="SectionParagraph">
+          Before we wait for the specific event we want to wait for, we need to find the event we want. The event for detecting user input is part of the UserInputService, which can be defined using :GetService(). The specific event for detecting user input is the <a href="https://developer.roblox.com/en-us/api-reference/event/UserInputService/InputBegan" style="color: turquoise; background-color: transparent; text-decoration: underline;" target="_blank">InputBegan</a> event.
+        </p> 
+
+        <p class="SectionParagraph">
+          To wait for this event we would simply write,
+        </p>
+
+        <div class="CodeSample">
+          <b class ="purplekeyword">local</b> UserInputService <b class="operator">=</b> game:<b class="functionkeyword">GetService</b>(<b class="string">"UserInputService"</b>) <b class="comment">--define UserInputService</b>
+          <br>
+          UserInputService.InputBegan:Wait() <b class="comment">--wait for user input to be detected</b>
+        </div>
+
+        <p class="SectionParagraph">
+          We can refer to an event by using the "." accessor as shown above. Each event of an instance is listed on <a href="https://developer.roblox.com/en-us/api-reference" style="color: turquoise; background-color: transparent; text-decoration: underline;" target="_blank">developer.roblox.com</a>.
+        </p>
+
+        <div class="SectionTitle" id="5.3">5.3: Connect and Disconnect</div>
+
+        <p class="SectionParagraph">
+          Waiting for an event is great, but what if we wanted something to happen when a specific event happened?
+        </p>
+
+        <p class="SectionParagraph">
+          This is where functions, that we previously learned come in. The <b style="background-color: transparent;">Connect()</b> function can be used to connect an event with a function. This will make it so a function is called each time an event is fired. Below are two examples where connect is used to connect a function so that every time a player uses input, a print statement prints.
+        </p>
+
+        <div class="CodeSample">
+          <b class ="purplekeyword">local</b> UserInputService <b class="operator">=</b> game:<b class="functionkeyword">GetService</b>(<b class="string">"UserInputService"</b>) <b class="comment">--define UserInputService</b>
+          <br>
+          <br>
+          <b class="comment">--OPTION #1: CREATING FUNCTION INSIDE OF CONNECT</b>
+          <br>
+          UserInputService.InputBegan:Connect(<b class="purplekeyword">function</b>() <b class="comment">--we create the function inside the connect function</b>
+          <br>
+          <b class ="purplekeyword" style="padding-left: 15px;">print</b>(<b class="string">"Player used input!"</b>) <b class="comment">--Print a statement every time a player uses input</b>
+          <br>
+          <b class ="purplekeyword">end</b>) <b class="comment">--parenthesis to close function declaration</b>
+          <br>
+          <br>
+          <b class="comment">--OPTION #2: USING A PREVIOUSLY CREATED FUNCTION</b>
+          <br>
+          UserInputService.InputBegan:Connect(<b class="functionkeyword">printStatement</b>) <b class="comment">--The printStatement function was created previously</b>
+        </div>
 
         <p class="SectionParagraph">
           To be continued...
